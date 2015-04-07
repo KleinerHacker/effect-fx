@@ -1,0 +1,553 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools.Forms.Tools</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.RectangleFExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.RectangleFExtensions.IsPointInRect(System.Drawing.RectangleF,System.Drawing.PointF[])">
+            <summary>
+            Verifies that all points are in the rect
+            </summary>
+            <param name="rect"></param>
+            <param name="p">List of points to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.RectangleFExtensions.IsRectInRect(System.Drawing.RectangleF,System.Drawing.RectangleF[])">
+            <summary>
+            Verifies that all rects are in the given rect
+            </summary>
+            <param name="rect"></param>
+            <param name="r">List of rectangles to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.RectangleFExtensions.GetBottomRight(System.Drawing.RectangleF)">
+            <summary>
+            Gets the Location at point right / bottom
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.CultureForm">
+            <summary>
+            Represent a Form Temlate for culture forms to rebuild it if the language is changed
+            </summary>
+        </member>
+        <member name="M:NET.Tools.CultureForm.InitializeComponent">
+            <summary>
+            Default initialize component method for designer
+            </summary>
+        </member>
+        <member name="M:NET.Tools.CultureForm.ChangeUI">
+            <summary>
+            Change the UI to rebuild it for example in an other language
+            </summary>
+        </member>
+        <member name="T:NET.Tools.FontExtensions">
+            <summary>
+            Extensions for Font
+            </summary>
+        </member>
+        <member name="T:NET.Tools.BrushExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.BrushExtensions.Darker(System.Drawing.Brush,System.Int32)">
+            <summary>
+            Make the brush darker
+            </summary>
+            <param name="brush"></param>
+            <param name="div">Divisor for darking</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException">
+            Is thrown if the brush is not:
+            - SolidBrush
+            - LinearGradientBrush
+            - HatchBrush
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Is thrown if the div value is under 1
+            </exception>
+        </member>
+        <member name="M:NET.Tools.BrushExtensions.Darker(System.Drawing.Brush)">
+            <summary>
+            Make the brush darker
+            </summary>
+            <param name="brush"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.BrushExtensions.Brighter(System.Drawing.Brush,System.Int32)">
+            <summary>
+            Make it brighter
+            </summary>
+            <param name="brush"></param>
+            <param name="div">Divisor for brighting</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException">
+            Is thrown if the brush is not:
+            - SolidBrush
+            - LinearGradientBrush
+            - HatchBrush
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Is thrown if the div value is under 1
+            </exception>
+        </member>
+        <member name="M:NET.Tools.BrushExtensions.Brighter(System.Drawing.Brush)">
+            <summary>
+            Make it brighter
+            </summary>
+            <param name="brush"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.BrushExtensions.ToPen(System.Drawing.Brush,System.Int32)">
+            <summary>
+            Creates a brush pen
+            </summary>
+            <param name="brush"></param>
+            <param name="width">With of pen</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.BrushExtensions.ToPen(System.Drawing.Brush)">
+            <summary>
+            Creates a brush pen
+            </summary>
+            <param name="brush"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.ListViewExtensions">
+            <summary>
+            Extensions for list views
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ListViewExtensions.SelectAll(System.Windows.Forms.ListView)">
+            <summary>
+            Select all items in list view
+            </summary>
+            <param name="lv"></param>
+        </member>
+        <member name="M:NET.Tools.ListViewExtensions.RemoveSelected(System.Windows.Forms.ListView)">
+            <summary>
+            Remove all current selected elements
+            </summary>
+            <param name="lv"></param>
+        </member>
+        <member name="T:NET.Tools.HatchBrushExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.BitmapExtensions">
+            <summary>
+            \defgroup extensions Extensions
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.BitmapExtensions.GetAverageColor(System.Drawing.Bitmap)">
+            <summary>
+            Gets the average color. This process needs time
+            </summary>
+            <param name="bmp"></param>
+            <returns>The average color</returns>
+        </member>
+        <member name="T:NET.Tools.SplashForm">
+            <summary>
+            Form for all splashes
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SolidBrushExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SizeFExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ImageExtensions">
+            <summary>
+            Extensions for Images
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ImageExtensions.UseEffect(System.Drawing.Image,System.Windows.Media.Effects.Effect)">
+            <summary>
+            Use an effect on this image
+            </summary>
+            <param name="img"></param>
+            <param name="effect">The effect from the wpf-framework to use</param>
+            <returns>A new System.Drawing.Image with the effect</returns>
+        </member>
+        <member name="M:NET.Tools.ImageExtensions.ToBitmapSource(System.Drawing.Image)">
+            <summary>
+            Converts a System.Drawing.Bitmap to a Bitmap-Source
+            </summary>
+            <param name="img"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.ImageExtensions.ToWPFImage(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            Convert the image in a WPF-Image
+            </summary>
+            <param name="image"></param>
+            <param name="width">Width of new Image</param>
+            <param name="height">Height of new Image</param>
+            <returns>WPF-Image-Control</returns>
+        </member>
+        <member name="M:NET.Tools.ImageExtensions.SaveDependsOnExt(System.Drawing.Image,System.String)">
+            <summary>
+            Save the image to the given file and set the image format in depends on his extension
+            </summary>
+            <param name="filename">The file to save</param>
+            <param name="image"></param>
+            <exception cref="T:System.NotSupportedException">
+            Is thrown if the filename extension is unknown
+            </exception>
+        </member>
+        <member name="T:NET.Tools.PointFExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.PointFExtensions.IsPointInRect(System.Drawing.PointF,System.Drawing.RectangleF[])">
+            <summary>
+            Verifies that the point is in all rects
+            </summary>
+            <param name="p"></param>
+            <param name="rect">Rectangle(s) to check</param>
+            <returns>TRUE, if the point in all rectangles</returns>
+        </member>
+        <member name="T:NET.Tools.LinearGradientBrushExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ListBoxExtensions">
+            <summary>
+            Extensions for list boxes
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ListBoxExtensions.RemoveSelected(System.Windows.Forms.ListBox)">
+            <summary>
+            Remove all current selected items in the list box
+            </summary>
+            <param name="lb"></param>
+        </member>
+        <member name="T:NET.Tools.IconExtensions">
+            <summary>
+            Extensions for icons
+            </summary>
+        </member>
+        <member name="M:NET.Tools.IconExtensions.ToBitmapSource(System.Drawing.Icon)">
+            <summary>
+            Convert a System.Drawing-Icon to a Bitmap-Source
+            </summary>
+            <param name="icon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.IconExtensions.RotateFlip(System.Drawing.Icon,System.Drawing.RotateFlipType)">
+            <summary>
+            Rotate or Flip the icon
+            </summary>
+            <param name="icon"></param>
+            <param name="type">RotateFlipType</param>
+            <returns>The new rotated or flipped icon</returns>
+        </member>
+        <member name="M:NET.Tools.IconExtensions.ToWPFImage(System.Drawing.Icon,System.Int32,System.Int32)">
+            <summary>
+            Convert the icon in a WPF-Image
+            </summary>
+            <param name="icon"></param>
+            <param name="width">Width of new Image</param>
+            <param name="height">Height of new Image</param>
+            <returns>WPF-Image-Control</returns>
+        </member>
+        <member name="T:NET.Tools.CollectionExtensions">
+            <summary>
+            Extensions for a lot of windows forms collections
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ControlExtensions">
+            <summary>
+            Extensions for controls
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ControlExtensions.UpdateCulture(System.Windows.Forms.Control,System.Globalization.CultureInfo)">
+            <summary>
+            Update the culture to the given culture and update the controls used UpdateByCurrentCulture
+            
+            <example>
+            This example shows you to change the culture:
+            <code>
+            private void btnEnglishClick(object sender, EventArgs e)
+            {
+                this.UpdateCulture(new CultureInfo("en"));
+            }
+            </code>
+            </example>
+            </summary>
+            <param name="control"></param>
+            <param name="culture">The culture used to update</param>
+        </member>
+        <member name="M:NET.Tools.ControlExtensions.UpdateUICulture(System.Windows.Forms.Control,System.Globalization.CultureInfo)">
+            <summary>
+            Update the UI culture to the given culture and update the controls used UpdateByCurrentCulture
+            
+            <example>
+            This example shows you to change the culture:
+            <code>
+            private void btnEnglishClick(object sender, EventArgs e)
+            {
+                this.UpdateUICulture(new CultureInfo("en"));
+            }
+            </code>
+            </example>
+            </summary>
+            <param name="control"></param>
+            <param name="culture">The culture used to update</param>
+        </member>
+        <member name="M:NET.Tools.ControlExtensions.UpdateByCurrentUICulture(System.Windows.Forms.Control)">
+            <summary>
+            Update the properties of all components and controls in this control with the current UI culture
+            
+            <remarks>
+            Support:
+            - Text (Property)
+            </remarks>
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:NET.Tools.ControlExtensions.UpdateByCurrentCulture(System.Windows.Forms.Control)">
+            <summary>
+            Update the properties of all components and controls in this control with the current culture
+            
+            <remarks>
+            Support:
+            - Text (Property)
+            </remarks>
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="T:NET.Tools.SizeExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.FontFamilyExtensions">
+            <summary>
+            Extensions for Font Family
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ColorExtensions">
+            <summary>
+            Extensions for Colors
+            </summary>
+        </member>
+        <member name="T:NET.Tools.GraphicsExtensions">
+            <summary>
+            Extensions for Graphic
+            
+            Contains this main extensions:
+            - Drawing Cube 3D
+            - Filled Cube 3D
+            - Draw Graph with individual function
+            - Draw Background for a graph
+            - Draw Cards from window cards.dll
+            </summary>
+        </member>
+        <member name="M:NET.Tools.GraphicsExtensions.DrawString(System.Drawing.Graphics,System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.ContentAlignment)">
+            <summary>
+            Draw a string with the given content alignment
+            </summary>
+            <param name="g"></param>
+            <param name="str">String to draw</param>
+            <param name="font">Font to use to draw this string</param>
+            <param name="brush">Brush to use to draw this string</param>
+            <param name="rect">Rectangle with the string (<b>no cutting!</b>)</param>
+            <param name="alignment">The alignment of string to the given rectangle</param>
+        </member>
+        <member name="T:NET.Tools.FormExtensions">
+            <summary>
+            Extensions for Window Forms
+            </summary>
+        </member>
+        <member name="M:NET.Tools.FormExtensions.SetMdiCloseActiveEvent(System.Windows.Forms.Form,System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Checks automatically the possibility of closing a child window
+            </summary>
+            <param name="form"></param>
+            <param name="mi"></param>
+        </member>
+        <member name="M:NET.Tools.FormExtensions.SetMdiCloseAllEvent(System.Windows.Forms.Form,System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Checks automatically the possibility of closing all child windows
+            </summary>
+            <param name="form"></param>
+            <param name="mi"></param>
+        </member>
+        <member name="M:NET.Tools.FormExtensions.SetMdiCloseOthersEvent(System.Windows.Forms.Form,System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Checks automatically the possibility of closing the others child windows
+            </summary>
+            <param name="form"></param>
+            <param name="mi"></param>
+        </member>
+        <member name="M:NET.Tools.FormExtensions.InsertMdiControlMenu(System.Windows.Forms.Form,System.Windows.Forms.MenuStrip,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Insert a menu item in the given menu strip for mdi controlling
+            
+            <remarks>
+            Support this languages (in dependency of the CurrentUICulture):
+            - English (Default)
+            - German
+            - French
+            </remarks>
+            </summary>
+            <param name="form"></param>
+            <param name="menu">menu strip to insert the window menu</param>
+            <param name="index">index of position to insert the windows menu</param>
+            <param name="showCloseAll">shows "Close All"</param>
+            <param name="showCloseOthers">shows "Close Others"</param>
+            <param name="showLayout">shows "Layout"</param>
+            <param name="showWindowList">shows the list of all mdi children</param>
+        </member>
+        <member name="M:NET.Tools.FormExtensions.InsertMdiControlMenu(System.Windows.Forms.Form,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Insert a menu item in the main menu strip of this form for mdi controlling
+            
+            <remarks>
+            Support this languages (in dependency of the CurrentUICulture):
+            - English (Default)
+            - German
+            - French
+            </remarks>
+            </summary>
+            <param name="form"></param>
+            <param name="index">index of position to insert the windows menu</param>
+            <param name="showCloseAll">shows "Close All"</param>
+            <param name="showCloseOthers">shows "Close Others"</param>
+            <param name="showLayout">shows "Layout"</param>
+            <param name="showWindowList">shows the list of all mdi children</param>
+        </member>
+        <member name="M:NET.Tools.FormExtensions.InsertMdiControlMenu(System.Windows.Forms.Form,System.Windows.Forms.MenuStrip,System.Int32)">
+            <summary>
+            Insert a menu item in the given menu strip for <b>full</b> mdi controlling
+            
+            <remarks>
+            Support this languages (in dependency of the CurrentUICulture):
+            - English (Default)
+            - German
+            - French
+            </remarks>
+            </summary>
+            <param name="form"></param>
+            <param name="menu">menu strip to insert the window menu</param>
+            <param name="index">index of position to insert the windows menu</param>
+        </member>
+        <member name="M:NET.Tools.FormExtensions.InsertMdiControlMenu(System.Windows.Forms.Form,System.Int32)">
+            <summary>
+            Insert a menu item in the main menu strip of this form for <b>full</b> mdi controlling
+            
+            <remarks>
+            Support this languages (in dependency of the CurrentUICulture):
+            - English (Default)
+            - German
+            - French
+            </remarks>
+            </summary>
+            <param name="form"></param>
+            <param name="index">index of position to insert the windows menu</param>
+        </member>
+        <member name="T:NET.Tools.RectangleExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.RectangleExtensions.IsPointInRect(System.Drawing.Rectangle,System.Drawing.Point[])">
+            <summary>
+            Verifies that all points are in the rect
+            </summary>
+            <param name="rect"></param>
+            <param name="p">List of points to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.RectangleExtensions.IsRectInRect(System.Drawing.Rectangle,System.Drawing.Rectangle[])">
+            <summary>
+            Verifies that all rects are in the given rect
+            </summary>
+            <param name="rect"></param>
+            <param name="r">List of rectangles to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.RectangleExtensions.GetBottomRight(System.Drawing.Rectangle)">
+            <summary>
+            Gets the Location at point right / bottom
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.PenExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.TextBoxExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.TextBoxExtensions.AddInputValidator(System.Windows.Forms.TextBox,System.Func{System.String,System.Boolean})">
+            <summary>
+            Add a validator and change all incorrect inputs
+            </summary>
+            <param name="textBox"></param>
+            <param name="validator">The validator function</param>
+        </member>
+        <member name="M:NET.Tools.TextBoxExtensions.AddMarkValidator(System.Windows.Forms.TextBox,System.Func{System.String,System.Boolean},System.Drawing.Color)">
+            <summary>
+            Add a validator and mark the box with a colored border if the  content is incorrect
+            </summary>
+            <param name="textBox"></param>
+            <param name="validator">The validator function</param>
+            <param name="errColor">Color for error</param>
+        </member>
+        <member name="M:NET.Tools.TextBoxExtensions.AddMarkValidator(System.Windows.Forms.TextBox,System.Func{System.String,System.Boolean})">
+            <summary>
+            Add a validator and mark the box with a colored border if the  content is incorrect
+            </summary>
+            <param name="textBox"></param>
+            <param name="validator">The validator function</param>
+        </member>
+        <member name="T:NET.Tools.PointExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.PointExtensions.IsPointInRect(System.Drawing.Point,System.Drawing.Rectangle[])">
+            <summary>
+            Verifies that the point is in all rects
+            </summary>
+            <param name="p"></param>
+            <param name="rect">Rectangle(s) to check</param>
+            <returns>TRUE, if the point in all rectangles</returns>
+        </member>
+    </members>
+</doc>

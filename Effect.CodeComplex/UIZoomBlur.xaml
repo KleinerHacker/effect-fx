@@ -1,0 +1,17 @@
+﻿<ui:UIControl x:Class="Effect.CodeComplex.UIZoomBlur"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ui="clr-namespace:Plugin.Interface;assembly=Plugin.Interface"
+             mc:Ignorable="d" 
+             d:DesignHeight="226" d:DesignWidth="570">
+    <Grid>
+        <Label Content="Position X:" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" />
+        <Slider Height="23" Margin="12,46,12,0" Name="sldPosX" VerticalAlignment="Top" Maximum="1" Value="0.5" ValueChanged="sldAmount_ValueChanged" />
+        <Label Content="Position Y:" Height="28" HorizontalAlignment="Left" Margin="12,75,0,0" Name="label2" VerticalAlignment="Top" />
+        <Slider Height="23" Margin="12,109,12,0" Maximum="1" Name="sldPosY" Value="0.5" VerticalAlignment="Top" ValueChanged="sldAmount_ValueChanged" />
+        <Label Content="Amount:" Height="28" HorizontalAlignment="Left" Margin="12,138,0,0" Name="label3" VerticalAlignment="Top" />
+        <Slider Height="23" Margin="12,172,12,0" Name="sldAmount" VerticalAlignment="Top" Minimum="-1" Maximum="1" ValueChanged="sldAmount_ValueChanged" Value="-0.1" />
+    </Grid>
+</ui:UIControl>

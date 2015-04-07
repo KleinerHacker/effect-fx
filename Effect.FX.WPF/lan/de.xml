@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+	<Text key="main.ribbon.default">Standard</Text>
+	<Text key="main.ribbon.default.edit">Bearbeiten</Text>
+	<Text key="main.ribbon.default.edit.undo">Rückgängig</Text>
+	<Text key="main.ribbon.default.edit.redo">Wiederholen</Text>
+	<Text key="main.ribbon.default.edit.copy">Kopieren</Text>
+	<Text key="main.ribbon.default.manipulation">Manipulation</Text>
+	<Text key="main.ribbon.default.manipulation.left">Nach links drehen</Text>
+	<Text key="main.ribbon.default.manipulation.right">Nach rechts drehen</Text>
+	<Text key="main.ribbon.default.manipulation.flipX">Horizontal spiegeln</Text>
+	<Text key="main.ribbon.default.manipulation.flipY">Vertikal spiegeln</Text>
+	<Text key="main.ribbon.default.image">Bild-Informationen</Text>
+  <Text key="main.ribbon.effects">Effekte</Text>
+  <Text key="main.ribbon.effects.explorer">Effekt Explorer</Text>
+  <Text key="main.ribbon.renderer">Autom. Zeichnen</Text>
+  <Text key="main.ribbon.renderer.explorer">Render Explorer</Text>
+  <Text key="main.menu.open">Öffnen...</Text>
+  <Text key="main.menu.save">Speichern</Text>
+  <Text key="main.menu.saveas">Speichern unter...</Text>
+  <Text key="main.menu.print">Drucken...</Text>
+  <Text key="main.menu.print.setup">Drucker Setup...</Text>
+  <Text key="main.menu.exit">Verlassen</Text>
+  <Text key="main.menu.site.title">Zuletzt geöffnete Bilder</Text>
+  <Text key="main.menu.bottom.about">Über</Text>
+  <Text key="main.menu.bottom.help">Hilfethemen</Text>
+  <Text key="main.menu.bottom.preferences">Einstellungen</Text>
+  <Text key="main.menu.bottom.preferences.plugins">Plugins</Text>
+  <Text key="main.menu.bottom.preferences.plugins.effects">Effekte</Text>
+  <Text key="main.menu.bottom.preferences.plugins.renderer">Autom. Zeichnen</Text>
+  <Text key="main.menu.bottom.preferences.language">Sprache</Text>
+</Language>

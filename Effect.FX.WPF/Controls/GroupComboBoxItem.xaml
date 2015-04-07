@@ -1,0 +1,10 @@
+﻿<ComboBoxItem xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    x:Class="Effect.FX.WPF.Controls.GroupComboBoxItem"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <StackPanel Orientation="Horizontal">
+        <Image HorizontalAlignment="Left" Width="16" Height="16" Name="imgImage"/>
+        <Label HorizontalAlignment="Left" Margin="20,0,0,0" Name="lblText"/>
+    </StackPanel>
+    
+</ComboBoxItem>

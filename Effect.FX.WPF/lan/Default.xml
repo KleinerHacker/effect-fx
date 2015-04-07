@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+	<Text key="main.ribbon.default">Default</Text>
+	<Text key="main.ribbon.default.edit">Edit</Text>
+	<Text key="main.ribbon.default.edit.undo">Undo</Text>
+	<Text key="main.ribbon.default.edit.redo">Redo</Text>
+	<Text key="main.ribbon.default.edit.copy">Copy</Text>
+	<Text key="main.ribbon.default.manipulation">Manipulation</Text>
+	<Text key="main.ribbon.default.manipulation.left">Rotate left</Text>
+	<Text key="main.ribbon.default.manipulation.right">Rotate right</Text>
+	<Text key="main.ribbon.default.manipulation.flipX">Flip horizontal</Text>
+	<Text key="main.ribbon.default.manipulation.flipY">Flip vertical</Text>
+	<Text key="main.ribbon.default.image">Image Information</Text>
+  <Text key="main.ribbon.effects">Effects</Text>
+  <Text key="main.ribbon.effects.explorer">Effect Explorer</Text>
+  <Text key="main.ribbon.renderer">Renderer</Text>
+  <Text key="main.ribbon.renderer.explorer">Render Explorer</Text>
+  <Text key="main.menu.open">Open...</Text>
+  <Text key="main.menu.save">Save</Text>
+  <Text key="main.menu.saveas">Save as...</Text>
+  <Text key="main.menu.print">Print...</Text>
+  <Text key="main.menu.print.setup">Printer Setup...</Text>
+  <Text key="main.menu.exit">Exit</Text>
+  <Text key="main.menu.site.title">Last opened pictures</Text>
+  <Text key="main.menu.bottom.about">About</Text>
+  <Text key="main.menu.bottom.help">Helptheme</Text>
+  <Text key="main.menu.bottom.preferences">Preferences</Text>
+  <Text key="main.menu.bottom.preferences.plugins">Plugins</Text>
+  <Text key="main.menu.bottom.preferences.plugins.effects">Effects</Text>
+  <Text key="main.menu.bottom.preferences.plugins.renderer">Renderer</Text>
+  <Text key="main.menu.bottom.preferences.language">Language</Text>
+</Language>

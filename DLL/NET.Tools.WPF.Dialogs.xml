@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools.WPF.Dialogs</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.WPF.InputDialogEx">
+            <summary>
+            Default input dialog for WPF (support validators)
+            
+            Change the skin about the bundle parameter
+            </summary>
+            <summary>
+            InputDialogEx
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.InputDialogEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.MessageDialogEx">
+            <summary>
+            Default message dialog for WPF
+            
+            You can change the skin about the skin bundle parameter
+            </summary>
+            <summary>
+            MessageDialogEx
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.MessageDialogEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.LoginDialogEx">
+            <summary>
+            Default login dialog for WPF
+            
+            You can change the skin about the bundle parameter
+            </summary>
+            <summary>
+            LoginDialogEx
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.LoginDialogEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.LoginData">
+            <summary>
+            Represent the login data for a default login dialog
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.ErrorDialogEx">
+            <summary>
+            Default dialog for WPF Error Messages (Exceptions)
+            
+            Change the skin about the bundle parameter
+            </summary>
+            <summary>
+            ErrorDialogEx
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.ErrorDialogEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.PasswordChangeDialogEx">
+            <summary>
+            Default password change dialog for wpf
+            
+            Change the skin about the bundle parameter
+            </summary>
+            <summary>
+            PasswordChangeDialogEx
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.PasswordChangeDialogEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.WorkingDialogEx">
+            <summary>
+            Represent a Dialog for working processes with a progress bar
+            
+            Change the skin about the bundle parameter
+            </summary>
+            <summary>
+            WorkingDialogEx
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.ShowDialog(System.String,System.String,NET.Tools.WPF.WorkingDialogEx.WorkingActionHandler,NET.Tools.WPF.Skins.SkinBundle)">
+            <summary>
+            Show the dialog
+            </summary>
+            <param name="title">Dialogs title</param>
+            <param name="info">Info-text</param>
+            <param name="action">Working action</param>
+            <param name="bundle">Skin-Bundle</param>
+            <returns>TRUE, if the dialog was not canceled and there are no exceptions in action thread</returns>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.ShowDialog(System.String,System.String,NET.Tools.WPF.WorkingDialogEx.WorkingActionHandler)">
+            <summary>
+            Show the dialog
+            </summary>
+            <param name="title">Dialogs title</param>
+            <param name="info">Info-text</param>
+            <param name="action">Working action</param>
+            <returns>TRUE, if the dialog was not canceled and there are no exceptions in action thread</returns>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.WorkingDialogEx.WorkingActionHandler">
+            <summary>
+            Action for the working thread
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs">
+            <summary>
+            Event-Arguments for the woring action
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.ShowTime(System.Double,System.Double,NET.Tools.TimeSpanStringType)">
+            <summary>
+            Set the time to end
+            </summary>
+            <param name="max">Maximum value</param>
+            <param name="val">Value now (must be greater than 0)</param>
+            <param name="type">Output of time</param>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.ShowTime(System.Double,System.Double)">
+            <summary>
+            Set the time to end
+            </summary>
+            <param name="max">Maximum value</param>
+            <param name="val">Value now (must be greater than 0)</param>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.HideTime">
+            <summary>
+            Hide the time
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.ShowKBS(System.Double)">
+            <summary>
+            Set the kb/s value
+            </summary>
+            <param name="val">Value now</param>
+        </member>
+        <member name="M:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.HideKBS">
+            <summary>
+            Hide the KBS
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.Info">
+            <summary>
+            Gets or sets the info-text
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.Maximum">
+            <summary>
+            Maximum for the progress bar
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.WorkingDialogEx.WorkingActionEventArgs.Value">
+            <summary>
+            Value now for the progress bar
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.MessageButtons">
+            <summary>
+            \addtogroup enums
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.MessageIconHelper">
+            @}
+        </member>
+    </members>
+</doc>

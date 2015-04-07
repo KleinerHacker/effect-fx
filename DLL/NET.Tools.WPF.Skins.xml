@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools.WPF.Skins</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.WPF.Skins.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.Skins.SkinBundle">
+            <summary>
+            Represent a skin bundle for a WPF skin. In this bundle are defined all styles and xaml-paths.
+            Additional it descripes needed colors, brushes and icons for Dialogs.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.Skins.SkinBundle.#ctor(System.Uri,System.String,System.Windows.Media.Brush,System.Windows.Media.Brush,System.Nullable{System.Windows.Media.Color},System.Nullable{System.Windows.Media.Color},System.Windows.Media.ImageSource,System.Windows.Media.ImageSource,System.Windows.Media.ImageSource,System.Windows.Media.ImageSource,System.Windows.Media.ImageSource)">
+            <summary>
+            Create a skin bundle
+            </summary>
+            <param name="xamlPath">Path to the finnaly xaml-file</param>
+            <param name="windowKey">Key for the window style template</param>
+            <param name="bottomColor">Bottom color from header</param>
+            <param name="headBrush">Text brush from headline</param>
+            <param name="infoBrush">Text brush for info line</param>
+            <param name="topColor">Top color from header</param>
+            <param name="errIcon">Error icon</param>
+            <param name="infoIcon">Info icon</param>
+            <param name="okIcon">OK icon</param>
+            <param name="questIcon">Qestion icon</param>
+            <param name="warnIcon">Warning icon</param>
+        </member>
+        <member name="M:NET.Tools.WPF.Skins.SkinBundle.#ctor(System.Uri,System.String,System.Windows.Media.Brush,System.Windows.Media.Brush,System.Nullable{System.Windows.Media.Color},System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Create a skin bundle
+            </summary>
+            <param name="xamlPath">Path to the finnaly xaml-file</param>
+            <param name="windowKey">Key for the window style template</param>
+            <param name="bottomColor">Bottom color from header</param>
+            <param name="headBrush">Text brush from headline</param>
+            <param name="infoBrush">Text brush for info line</param>
+            <param name="topColor">Top color from header</param>
+        </member>
+        <member name="M:NET.Tools.WPF.Skins.SkinBundle.#ctor(System.Uri,System.String,System.Windows.Media.Brush,System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Create a skin bundle
+            </summary>
+            <param name="xamlPath">Path to the finnaly xaml-file</param>
+            <param name="windowKey">Key for the window style template</param>
+            <param name="textBrush">Text brush for header</param>
+            <param name="color">Color from header</param>
+        </member>
+        <member name="M:NET.Tools.WPF.Skins.SkinBundle.#ctor(System.Uri,System.String,System.Windows.Media.ImageSource,System.Windows.Media.ImageSource,System.Windows.Media.ImageSource,System.Windows.Media.ImageSource,System.Windows.Media.ImageSource)">
+            <summary>
+            Create a skin bundle
+            </summary>
+            <param name="xamlPath">Path to the finnaly xaml-file</param>
+            <param name="windowKey">Key for the window style template</param>
+            <param name="errIcon">Error icon</param>
+            <param name="infoIcon">Info icon</param>
+            <param name="okIcon">OK icon</param>
+            <param name="questIcon">Qestion icon</param>
+            <param name="warnIcon">Warning icon</param>
+        </member>
+        <member name="M:NET.Tools.WPF.Skins.SkinBundle.#ctor(System.Uri,System.String)">
+            <summary>
+            Create a skin bundle
+            </summary>
+            <param name="xamlPath">Path to the finnaly xaml-file</param>
+            <param name="windowKey">Key for the window style template</param>
+        </member>
+        <member name="M:NET.Tools.WPF.Skins.SkinBundle.SetBundle(System.Windows.Window)">
+            <summary>
+            Set the skin bundle to this window
+            </summary>
+            <param name="win">The window to set the style template and add the 
+            xaml-file as merged resource</param>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.XAMLSkinPath">
+            <summary>
+            Path to the finnaly xaml-file
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.WindowTemplateKey">
+            <summary>
+            Key for the window style template
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.HeadLineTextBrush">
+            <summary>
+            Brush for the headline in header in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.InfoTextBrush">
+            <summary>
+            Brush for the info line in header in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.HeaderTopColor">
+            <summary>
+            Top color for the header in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.HeaderBottomColor">
+            <summary>
+            Bottom color for the header in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.ErrorIcon">
+            <summary>
+            Error icon for this bundle or null to use the defualt in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.InfoIcon">
+            <summary>
+            Info icon for this bundle or null to use the defualt in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.OKIcon">
+            <summary>
+            OK icon for this bundle or null to use the defualt in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.QuestionIcon">
+            <summary>
+            Question icon for this bundle or null to use the defualt in dialogs
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Skins.SkinBundle.WarnIcon">
+            <summary>
+            Warn icon for this bundle or null to use the defualt in dialogs
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools.System</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.ControlTools">
+            <summary>
+            \defgroup dlltools Default System Tools
+            \addtogroup dlltools
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.CardSuit">
+            <summary>
+            Card suite (All card colors)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.CardDeck">
+            <summary>
+            Card decks (it is be able that the decks are changed between the windows versions)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.CardType">
+            <summary>
+            Type of cards (AS until King)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ConsoleTools">
+            <summary>
+            Contains tools for console
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ConsoleTools.CaretBlinkTime">
+            <summary>
+            Gets or sets the blink tick of the console cursor line or block
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ResolutionManager">
+            <summary>
+            Manager  that gets all supported resolutions.
+            For fast screen resolution changing use DesktopTools
+            </summary>
+            <seealso cref="T:NET.Tools.DesktopTools"/>
+        </member>
+        <member name="P:NET.Tools.ResolutionManager.ResolutionList">
+            <summary>
+            Gets all supported screenresolutions
+            </summary>
+        </member>
+        <member name="T:NET.Tools.DisplayScreen">
+            <summary>
+            A Screen Resolution Wrapper-Class
+            </summary>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.#ctor">
+            <summary>
+            Create a display screen object with the current settings
+            </summary>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.#ctor(System.Int32,System.Int32,System.Int32,System.Int16,NET.Tools.RotateDesktopMode)">
+            <summary>
+            Create a display screen object with the given settings. 
+            If a setting is not given it will be used the current setting
+            </summary>
+            <param name="width">Screen width</param>
+            <param name="height">Screen height</param>
+            <param name="frequency">Screen frequency</param>
+            <param name="color">Screen color mode</param>
+            <param name="mode">Screen rotation mode</param>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.#ctor(System.Int32,System.Int32,System.Int32,System.Int16)">
+            <summary>
+            Create a display screen object with the given settings. 
+            If a setting is not given it will be used the current setting
+            </summary>
+            <param name="width">Screen width</param>
+            <param name="height">Screen height</param>
+            <param name="frequency">Screen frequency</param>
+            <param name="color">Screen color mode</param>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.#ctor(System.Int32,System.Int32,System.Int16,NET.Tools.RotateDesktopMode)">
+            <summary>
+            Create a display screen object with the given settings. 
+            If a setting is not given it will be used the current setting
+            </summary>
+            <param name="width">Screen width</param>
+            <param name="height">Screen height</param>
+            <param name="color">Screen color mode</param>
+            <param name="mode">Screen rotation mode</param>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.#ctor(System.Int32,System.Int32,NET.Tools.RotateDesktopMode)">
+            <summary>
+            Create a display screen object with the given settings. 
+            If a setting is not given it will be used the current setting
+            </summary>
+            <param name="width">Screen width</param>
+            <param name="height">Screen height</param>
+            <param name="mode">Screen rotation mode</param>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Create a display screen object with the given settings. 
+            If a setting is not given it will be used the current setting
+            </summary>
+            <param name="width">Screen width</param>
+            <param name="height">Screen height</param>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.#ctor(System.Int32,System.Int32,System.Int16)">
+            <summary>
+            Create a display screen object with the given settings. 
+            If a setting is not given it will be used the current setting
+            </summary>
+            <param name="width">Screen width</param>
+            <param name="height">Screen height</param>
+            <param name="color">Screen color mode</param>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.UpdateSettingsInRegistry">
+            <summary>
+            Update the settings on computer permanently (registry)
+            </summary>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.UpdateSettingsToFullscreen">
+            <summary>
+            Update the settings on computer temporary (fullscreen)
+            </summary>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.ToString">
+            <summary>
+            Display as String
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.GetHashCode">
+            <summary>
+            Hashcode
+            </summary>
+            <returns>Hashcode</returns>
+        </member>
+        <member name="M:NET.Tools.DisplayScreen.Equals(System.Object)">
+            <summary>
+            Equals
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NET.Tools.DisplayScreen.ScreenWidth">
+            <summary>
+            Gets or sets the screen width
+            </summary>
+        </member>
+        <member name="P:NET.Tools.DisplayScreen.ScreenHeight">
+            <summary>
+            Gets or sets the screen height
+            </summary>
+        </member>
+        <member name="P:NET.Tools.DisplayScreen.ScreenRotation">
+            <summary>
+            Gets or sets the screen rotation
+            </summary>
+        </member>
+        <member name="P:NET.Tools.DisplayScreen.ScreenFrequency">
+            <summary>
+            Gets or sets the screen frequency
+            </summary>
+        </member>
+        <member name="P:NET.Tools.DisplayScreen.ScreenColor">
+            <summary>
+            Gets or sets the sxcreen color mode
+            </summary>
+        </member>
+        <member name="T:NET.Tools.MessageTools">
+            <summary>
+            \addtogroup dlltools
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.MessageType">
+            <summary>
+            \addtogroup enums
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SoundTools">
+            <summary>
+            Tools for sound playing
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SoundFlags">
+            \addtogroup enums
+            @{
+        </member>
+        <member name="T:NET.Tools.WallpaperStyle">
+            <summary>
+            \defgroup enums Enumerations
+            \addtogroup enums
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.DesktopTools">
+            <summary>
+            \addtogroup dlltools
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.MouseTools">
+            <summary>
+            \addtogroup dlltools
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.MouseTools.LoadMouseCursor(System.String)">
+            <summary>
+            Load a mouse cursor from a *.cur or *.ani file
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.MouseTools.ShowMouseCursor">
+            <summary>
+            Show the mouse cursor
+            </summary>
+        </member>
+        <member name="M:NET.Tools.MouseTools.HideMouseCursor">
+            <summary>
+            Hide the mouse cursor
+            </summary>
+        </member>
+        <member name="M:NET.Tools.MouseTools.ResetMouseCursorClipRect">
+            <summary>
+            Reset the mouse cursor area
+            </summary>
+        </member>
+        <member name="M:NET.Tools.MouseTools.SetSystemCursor(NET.Tools.SystemCursors,System.Windows.Forms.Cursor)">
+            <summary>
+            Set the given system cursor
+            </summary>
+            <param name="sysCursor">ID of system cursor</param>
+            <param name="cursor">The new cursor image</param>
+        </member>
+        <member name="P:NET.Tools.MouseTools.CursorArea">
+            <summary>
+            Gets or sets area of mouse cursor
+            </summary>
+        </member>
+        <member name="P:NET.Tools.MouseTools.CursorPosition">
+            <summary>
+            Gets or sets the mouse cursor position
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SystemCursors">
+            <summary>
+            \addtogroup enums
+            @{
+            </summary>
+        </member>
+    </members>
+</doc>

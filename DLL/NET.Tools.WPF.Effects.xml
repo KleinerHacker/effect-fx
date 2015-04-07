@@ -1,0 +1,1677 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools.WPF.Effects</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.WPF.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.ColorSnowEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.PixelShaderEffectBase">
+            <summary>
+            Abstract basic class for all Pixel-Shader effects
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.PixelateEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PixelateEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PixelateEffect.HorizontalPixelCountsProperty">
+            <summary>
+            This property is mapped to the HorizontalPixelCounts variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PixelateEffect.VerticalPixelCountsProperty">
+            <summary>
+            This property is mapped to the VerticalPixelCounts variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PixelateEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.PixelateEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.PixelateEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PixelateEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PixelateEffect.HorizontalPixelCounts">
+            <summary>
+            Gets or sets the HorizontalPixelCounts variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PixelateEffect.VerticalPixelCounts">
+            <summary>
+            Gets or sets the VerticalPixelCounts variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.SkyEffect">
+            <summary>
+            Create an effect that looks like a cloudy sky with dark clouds
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.SkyEffect.Alpha">
+            <summary>
+            Alpha value for the cloud displaying
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.SkyEffect.Invert">
+            <summary>
+            Invert the alpha value
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.ToneMappingEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.ExposureProperty">
+            <summary>
+            This property is mapped to the Exposure variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.DefogProperty">
+            <summary>
+            This property is mapped to the Defog variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.GammaProperty">
+            <summary>
+            This property is mapped to the Gamma variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.FogColorProperty">
+            <summary>
+            This property is mapped to the FogColor variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.VignetteRadiusProperty">
+            <summary>
+            This property is mapped to the VignetteRadius variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.VignetteCenterProperty">
+            <summary>
+            This property is mapped to the VignetteCenterX variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.BlueShiftProperty">
+            <summary>
+            This property is mapped to the BlueShift variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToneMappingEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ToneMappingEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ToneMappingEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.Exposure">
+            <summary>
+            Gets or sets the Exposure variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.Defog">
+            <summary>
+            Gets or sets the Defog variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.Gamma">
+            <summary>
+            Gets or sets the Gamma variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.FogColor">
+            <summary>
+            Gets or sets the FogColor variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.VignetteRadius">
+            <summary>
+            Gets or sets the VignetteRadius variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.VignetteCenter">
+            <summary>
+            Gets or sets the VignetteCenterX variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToneMappingEffect.BlueShift">
+            <summary>
+            Gets or sets the BlueShift variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.CenterProperty">
+            <summary>
+            Gets or sets the Center variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.InnerRadiusProperty">
+            <summary>
+            Gets or sets the InnerRadius variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.MagnificationProperty">
+            <summary>
+            Gets or sets the Magnification variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.OuterRadiusProperty">
+            <summary>
+            Gets or sets the OuterRaduis variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.InputProperty">
+            <summary>
+            Gets or sets the input brush used in the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.pixelShader">
+            <summary>
+            The pixel shader instance.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.Center">
+            <summary>
+            Gets or sets the center variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.InnerRadius">
+            <summary>
+            Gets or sets the InnerRadius variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.Magnification">
+            <summary>
+            Gets or sets the Magnification variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.OuterRadius">
+            <summary>
+            Gets or sets the OuterRadius variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SmoothMagnifyEffect.Input">
+            <summary>
+            Gets or sets the input brush used within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.SharpenEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SharpenEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SharpenEffect.AmountProperty">
+            <summary>
+            This property is mapped to the Amount variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SharpenEffect.WidthProperty">
+            <summary>
+            This property is mapped to the Width variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SharpenEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SharpenEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SharpenEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SharpenEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SharpenEffect.Amount">
+            <summary>
+            Gets or sets the Amount variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SharpenEffect.Width">
+            <summary>
+            Gets or sets the Width variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.MonochromeEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MonochromeEffect.FilterColorProperty">
+            <summary>
+            Gets or sets the FilterColor variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MonochromeEffect.InputProperty">
+            <summary>
+            Gets or sets the Input of the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MonochromeEffect.pixelShader">
+            <summary>
+            The shader instance.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MonochromeEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MonochromeEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MonochromeEffect.FilterColor">
+            <summary>
+            Gets or sets the FilterColor variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MonochromeEffect.Input">
+            <summary>
+            Gets or sets the input used in the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.BlackWhiteEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.MagnifyEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.RadiiProperty">
+            <summary>
+            Gets or sets the Radii variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.CenterProperty">
+            <summary>
+            Gets or sets the center variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.ShrinkFactorProperty">
+            <summary>
+            Gets or sets the amount variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.InputProperty">
+            <summary>
+            Gets or sets the input used in the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.pixelShader">
+            <summary>
+            The pixel shader instance.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.generalTransform">
+            <summary>
+            The transform used for this shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MagnifyEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MagnifyEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MagnifyEffect.Radii">
+            <summary>
+            Gets or sets the Radii variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MagnifyEffect.Center">
+            <summary>
+            Gets or sets the Center variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MagnifyEffect.ShrinkFactor">
+            <summary>
+            Gets or sets the ShrinkFactor: 
+            The higher the shrink factor the "smaller" the content inside the ellipse will appear. 
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MagnifyEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MagnifyEffect.EffectMapping">
+            <summary>
+            Gets the EffectMapping.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform">
+            <summary>
+            The GeneralTransform corrosponding to the Magnify effect.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.effect">
+            <summary>
+            The effect instance.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.thisIsInverse">
+            <summary>
+            If the transform is an inverse.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.inverseTransform">
+            <summary>
+            The transform specific to this Effect.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.#ctor(NET.Tools.WPF.CodeComplex.MagnifyEffect)">
+            <summary>
+            Creates a new instance.
+            </summary>
+            <param name="fx">The source effect.</param>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.TransformBounds(System.Windows.Rect)">
+            <summary>
+            This particular effect keeps axis aligned lines axis aligned, so transformation of the rect is just
+            transformation of its corner points.
+            </summary>
+            <param name="rect">The input rect.</param>
+            <returns>The output rect.</returns>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.TryTransform(System.Windows.Point,System.Windows.Point@)">
+            <summary>
+            Attempt to transform a point based on 
+            the effect.
+            </summary>
+            <param name="targetPoint">The point to transform.</param>
+            <param name="result">The result if available.</param>
+            <returns>Return true if successful.</returns>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.CreateInstanceCore">
+            <summary>
+            Creats a new instance.
+            </summary>
+            <returns>A new instance of this.</returns>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.PointIsInEllipse(System.Windows.Point,System.Windows.Point,System.Windows.Size)">
+            <summary>
+            Determines if a point is within an ellipse.
+            </summary>
+            <param name="pt">The test point.</param>
+            <param name="center">The center point of the ellipse.</param>
+            <param name="radii">The radii of the ellipse.</param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.MagnifyEffect.MagnifyGeneralTransform.Inverse">
+            <summary>
+            Gets the inverse transform.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.AlphaEffect">
+            <summary>
+            \defgroup effects WPF-Effects
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.HDREffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.EmbossedEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.EmbossedEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.EmbossedEffect.AmountProperty">
+            <summary>
+            This property is mapped to the Amount variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.EmbossedEffect.WidthProperty">
+            <summary>
+            This property is mapped to the Width variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.EmbossedEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.EmbossedEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.EmbossedEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.EmbossedEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.EmbossedEffect.Amount">
+            <summary>
+            Gets or sets the Amount variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.EmbossedEffect.Width">
+            <summary>
+            Gets or sets the Width variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.BrightExtractEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BrightExtractEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BrightExtractEffect.ThresholdProperty">
+            <summary>
+            This property is mapped to the Threshold variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BrightExtractEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.BrightExtractEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.BrightExtractEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BrightExtractEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BrightExtractEffect.Threshold">
+            <summary>
+            Gets or sets the Threshold variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.PixelEffect">
+            <summary>
+            \addtogroup effects
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.MotionBlurEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.SwirlEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.CenterProperty">
+            <summary>
+            This property is mapped to the Center variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlStrengthProperty">
+            <summary>
+            This property is mapped to the SwirlStrength variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.AngleFrequencyProperty">
+            <summary>
+            This property is mapped to the AngleFrequency variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.generalTransform">
+            <summary>
+            The transform used when this Effect is applied.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SwirlEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SwirlEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SwirlEffect.Center">
+            <summary>
+            Gets or sets the Center variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlStrength">
+            <summary>
+            Gets or sets the SwirlStrength variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SwirlEffect.AngleFrequency">
+            <summary>
+            Gets or sets the AngleFrequency variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SwirlEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SwirlEffect.EffectMapping">
+            <summary>
+            Gets the GeneralTransform for this effect.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform">
+            <summary>
+            For transforming input and tree transformations.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.theEffect">
+            <summary>
+            The instance of the Effect.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.thisIsInverse">
+            <summary>
+            The inverse of the transform.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.inverseTransform">
+            <summary>
+            The inverse of this GeneralTransform.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.#ctor(NET.Tools.WPF.CodeComplex.SwirlEffect)">
+            <summary>
+            Creates an instance of this class.
+            </summary>
+            <param name="eff">The effect itself.</param>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.TransformBounds(System.Windows.Rect)">
+            <summary>
+            For this operation, the bounds is the bounding box of the 4 transformed points. 
+            Need to transform each of them, and then circumscribe.  This is true for both the 
+            forward and the inverse.
+            </summary>
+            <param name="rect">The input rect.</param>
+            <returns>The transformed rect.</returns>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.TryTransform(System.Windows.Point,System.Windows.Point@)">
+            <summary>
+            Attempt to transform inPoint with the Swirl effect.
+            </summary>
+            <param name="targetPoint">The input point.</param>
+            <param name="result">The output point after transformed using the Swirl effect.</param>
+            <returns>True and throws if false.</returns>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.CreateInstanceCore">
+            <summary>
+            Returns a new instance of this.
+            </summary>
+            <returns>A new instance.</returns>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.SwirlEffect.SwirlGeneralTransform.Inverse">
+            <summary>
+            Gets a clone of the inverse of the current transform.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.OverlaySoftlightImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.ImageEffect">
+            <summary>
+            Abstract basic class for all only image pixel effects
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.ZoomBlurEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.CenterProperty">
+            <summary>
+            This property is mapped to the CenterX variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.BlurAmountProperty">
+            <summary>
+            This property is mapped to the BlurAmount variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.Center">
+            <summary>
+            Gets or sets the CenterX variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ZoomBlurEffect.BlurAmount">
+            <summary>
+            Gets or sets the BlurAmount variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.LightenImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.LightStreakEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.LightStreakEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.LightStreakEffect.BrightThresholdProperty">
+            <summary>
+            This property is mapped to the BrightThreshold variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.LightStreakEffect.ScaleProperty">
+            <summary>
+            This property is mapped to the Scale variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.LightStreakEffect.AttenuationProperty">
+            <summary>
+            This property is mapped to the Attenuation variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.LightStreakEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.LightStreakEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.LightStreakEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.LightStreakEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.LightStreakEffect.BrightThreshold">
+            <summary>
+            Gets or sets the BrightThreshold variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.LightStreakEffect.Scale">
+            <summary>
+            Gets or sets the Scale variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.LightStreakEffect.Attenuation">
+            <summary>
+            Gets or sets the Attenuation variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.ColorToneEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorToneEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorToneEffect.DesaturationProperty">
+            <summary>
+            This property is mapped to the Desaturation variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorToneEffect.TonedProperty">
+            <summary>
+            This property is mapped to the Toned variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorToneEffect.LightColorProperty">
+            <summary>
+            This property is mapped to the LightColor variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorToneEffect.DarkColorProperty">
+            <summary>
+            This property is mapped to the DarkColor variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorToneEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ColorToneEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ColorToneEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ColorToneEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ColorToneEffect.Desaturation">
+            <summary>
+            Gets or sets the Desaturation variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ColorToneEffect.Toned">
+            <summary>
+            Gets or sets the Toned variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ColorToneEffect.LightColor">
+            <summary>
+            Gets or sets the LightColor variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ColorToneEffect.DarkColor">
+            <summary>
+            Gets or sets the DarkColor variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.BandedSwirlEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.CenterProperty">
+            <summary>
+            Dependency property which modifies the Center variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.SwirlStrengthProperty">
+            <summary>
+            Dependency property which modifies the SwirlStrength variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.DistanceThresholdProperty">
+            <summary>
+            Dependency property which modifies the DistanceThreshold variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.InputProperty">
+            <summary>
+            Dependency property for the shader sampler.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.pixelShader">
+            <summary>
+            The pixel shader instance.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.#cctor">
+            <summary>
+            Creates a PixelShader by loading the bytecode.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.#ctor">
+            <summary>
+            Creates the and updates the registered values defined within the pixel shader using the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.Center">
+            <summary>
+            Gets or sets the Center variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.SwirlStrength">
+            <summary>
+            Gets or sets SwirlStength variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.DistanceThreshold">
+            <summary>
+            Gets or sets the DistanceThreshold variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BandedSwirlEffect.Input">
+            <summary>
+            Gets or sets the Input variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.NegativeEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.SkyColorEffect">
+            <summary>
+            Creates an effect that looks like a sky with colored clouds. Default there are white clouds.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.SkyColorEffect.NewColorProperty">
+            <summary>
+            Dependency-Property for the property "NewColor"
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.SkyColorEffect.NewColor">
+            <summary>
+            The new color of sky clouds
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.RippleEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.RippleEffect.CenterProperty">
+            <summary>
+            Gets or sets the Center variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.RippleEffect.AmplitudeProperty">
+            <summary>
+            Gets or sets the Amplitude variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.RippleEffect.FrequencyProperty">
+            <summary>
+            Gets or sets the Frequency variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.RippleEffect.PhaseProperty">
+            <summary>
+            Gets or sets the Phase variable within the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.RippleEffect.InputProperty">
+            <summary>
+            Gets or sets the input brush used in the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.RippleEffect.pixelShader">
+            <summary>
+            The pixel shader instance.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.RippleEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.RippleEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.RippleEffect.Center">
+            <summary>
+            Gets or sets the center variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.RippleEffect.Amplitude">
+            <summary>
+            Gets or sets the Amplitude variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.RippleEffect.Frequency">
+            <summary>
+            Gets or sets the frequency variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.RippleEffect.Phase">
+            <summary>
+            Gets or sets the Phase variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.RippleEffect.Input">
+            <summary>
+            Gets or sets the input used within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.RadiusProperty">
+            <summary>
+            This property is mapped to the Radius variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.WidthProperty">
+            <summary>
+            This property is mapped to the Width variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.HeightProperty">
+            <summary>
+            This property is mapped to the Height variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.Radius">
+            <summary>
+            Gets or sets the Radius variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.Width">
+            <summary>
+            Gets or sets the Width variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GrowablePoissonDiskEffect.Height">
+            <summary>
+            Gets or sets the Height variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.MultiplyImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.PinchEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PinchEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PinchEffect.CenterXProperty">
+            <summary>
+            This property is mapped to the CenterX variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PinchEffect.CenterYProperty">
+            <summary>
+            This property is mapped to the CenterY variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PinchEffect.RadiusProperty">
+            <summary>
+            This property is mapped to the Radius variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PinchEffect.AmountProperty">
+            <summary>
+            This property is mapped to the Amount variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.PinchEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.PinchEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.PinchEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PinchEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PinchEffect.CenterX">
+            <summary>
+            Gets or sets the CenterX variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PinchEffect.CenterY">
+            <summary>
+            Gets or sets the CenterY variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PinchEffect.Radius">
+            <summary>
+            Gets or sets the Radius variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.PinchEffect.Amount">
+            <summary>
+            Gets or sets the Amount variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.BlackWhiteSnowEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.WaveEffect">
+            <summary>
+            \addtogroup effects
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.DifferenceImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.InvertColorEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.InvertColorEffect.InputProperty">
+            <summary>
+            Gets or sets the Input of the shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.InvertColorEffect.pixelShader">
+            <summary>
+            The shader instance.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.InvertColorEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.InvertColorEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.InvertColorEffect.Input">
+            <summary>
+            Gets or sets the input used in the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.ColorKeyAlphaEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorKeyAlphaEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ColorKeyAlphaEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ColorKeyAlphaEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ColorKeyAlphaEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ColorKeyAlphaEffect.Input">
+            <summary>
+            Gets or sets the Input of shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.DarkenImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.TransparentColorEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.ExclusionImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.OverlayHardlightImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.ToonShaderEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToonShaderEffect.InputProperty">
+            <summary>
+            Dependency property for the shader sampler.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ToonShaderEffect.pixelShader">
+            <summary>
+            The pixel shader instance.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ToonShaderEffect.#cctor">
+            <summary>
+            Creates a PixelShader by loading the bytecode.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ToonShaderEffect.#ctor">
+            <summary>
+            Creates the and updates the registered values defined within the pixel shader using the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ToonShaderEffect.Input">
+            <summary>
+            Gets or sets the Input variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.BloomEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BloomEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BloomEffect.BloomIntensityProperty">
+            <summary>
+            This property is mapped to the BloomIntensity variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BloomEffect.BaseIntensityProperty">
+            <summary>
+            This property is mapped to the BaseIntensity variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BloomEffect.BloomSaturationProperty">
+            <summary>
+            This property is mapped to the BloomSaturation variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BloomEffect.BaseSaturationProperty">
+            <summary>
+            This property is mapped to the BaseSaturation variable within the pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.BloomEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.BloomEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.BloomEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BloomEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BloomEffect.BloomIntensity">
+            <summary>
+            Gets or sets the BloomIntensity variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BloomEffect.BaseIntensity">
+            <summary>
+            Gets or sets the BaseIntensity variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BloomEffect.BloomSaturation">
+            <summary>
+            Gets or sets the BloomSaturation variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.BloomEffect.BaseSaturation">
+            <summary>
+            Gets or sets the BaseSaturation variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.GrayscaleEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.NegationDifferenceImageEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.    
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.AngleProperty">
+            <summary>
+            This property is mapped to the Angle variable within the pixel shader. 0 is horizontal.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.BlurAmountProperty">
+            <summary>
+            This property is mapped to the BlurAmount variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.Angle">
+            <summary>
+            Gets or sets the Angle variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.DirectionalBlurEffect.BlurAmount">
+            <summary>
+            Gets or sets the BlurAmount variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.ReliefEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.MirrowEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.ColorShiftEffect">
+            <summary>
+            \addtogroup effects 
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.TransparentImageEffect">
+            <summary>
+            \addtogroup effects
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.GloomEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GloomEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GloomEffect.GloomIntensityProperty">
+            <summary>
+            This property is mapped to the GloomIntensity variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GloomEffect.BaseIntensityProperty">
+            <summary>
+            This property is mapped to the BaseIntensity variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GloomEffect.GloomSaturationProperty">
+            <summary>
+            This property is mapped to the GloomSaturation variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GloomEffect.BaseSaturationProperty">
+            <summary>
+            This property is mapped to the BaseSaturation variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.GloomEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.GloomEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.GloomEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GloomEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GloomEffect.GloomIntensity">
+            <summary>
+            Gets or sets the GloomIntensity variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GloomEffect.BaseIntensity">
+            <summary>
+            Gets or sets the BaseIntensity variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GloomEffect.GloomSaturation">
+            <summary>
+            Gets or sets the GloomSaturation variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.GloomEffect.BaseSaturation">
+            <summary>
+            Gets or sets the BaseSaturation variable within the shader.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect">
+            <summary>
+            This is the implementation of an extensible framework ShaderEffect which loads
+            a shader model 2 pixel shader. Dependecy properties declared in this class are mapped
+            to registers as defined in the *.ps file being loaded below.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.InputProperty">
+            <summary>
+            The explict input for this pixel shader.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.BrightnessProperty">
+            <summary>
+            This property is mapped to the Brightness variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.ContrastProperty">
+            <summary>
+            This property is mapped to the Contrast variable within the pixel shader. 
+            </summary>
+        </member>
+        <member name="F:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.pixelShader">
+            <summary>
+            A refernce to the pixel shader used.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.#cctor">
+            <summary>
+            Creates an instance of the shader from the included pixel shader.
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.#ctor">
+            <summary>
+            Creates an instance and updates the shader's variables to the default values.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.Input">
+            <summary>
+            Gets or sets the Input shader sampler.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.Brightness">
+            <summary>
+            Gets or sets the Brightness variable within the shader.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.WPF.CodeComplex.ContrastAdjustEffect.Contrast">
+            <summary>
+            Gets or sets the Contrast variable within the shader.
+            </summary>
+        </member>
+    </members>
+</doc>

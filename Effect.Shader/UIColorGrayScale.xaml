@@ -1,0 +1,11 @@
+﻿<interface:UIControl x:Class="Effect.Shader.UIColorGrayScale"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:interface="clr-namespace:Plugin.Interface;assembly=Plugin.Interface"
+    xmlns:contr="clr-namespace:NET.Tools.WPF;assembly=NET.Tools.WPF.Controls"
+    Height="391" Width="377">
+    <Grid>
+        <contr:ColorSlider Height="125" VerticalAlignment="Top" Margin="12,12,12,0" Name="sldColor" ColorChanged="sldColor_ColorChanged" />
+        <Button Height="23" Margin="12,143,0,0" Name="btnReset" VerticalAlignment="Top" HorizontalAlignment="Left" Width="97" Click="btnReset_Click">Reset</Button>
+    </Grid>
+</interface:UIControl>

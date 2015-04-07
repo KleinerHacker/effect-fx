@@ -1,0 +1,107 @@
+﻿<Window x:Class="Effect.FX.WPF.ImageInfoWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:contr="clr-namespace:NET.Tools.WPF;assembly=NET.Tools.WPF.Controls"
+    Title="Image Info" Height="789" Width="381" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="ToolWindow">
+    
+    <Window.Resources>
+        <RoutedCommand x:Key="cmdAddAuthor"/>
+        <RoutedCommand x:Key="cmdEditAuthor"/>
+        <RoutedCommand x:Key="cmdRemoveAuthor"/>
+        
+        <RoutedCommand x:Key="cmdAddKeyword"/>
+        <RoutedCommand x:Key="cmdEditKeyword"/>
+        <RoutedCommand x:Key="cmdRemoveKeyword"/>
+    </Window.Resources>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource cmdAddAuthor}" CanExecute="AlwaysCanExecute" Executed="AddAuthorExecuted"/>
+        <CommandBinding Command="{StaticResource cmdEditAuthor}" CanExecute="SelectedAuthorCanExecute" Executed="EditAuthorExecuted"/>
+        <CommandBinding Command="{StaticResource cmdRemoveAuthor}" CanExecute="SelectedAuthorCanExecute" Executed="RemoveAuthorExecuted"/>
+        
+        <CommandBinding Command="{StaticResource cmdAddKeyword}" CanExecute="AlwaysCanExecute" Executed="AddKeywordExecuted"/>
+        <CommandBinding Command="{StaticResource cmdEditKeyword}" CanExecute="SelectedKeywordCanExecute" Executed="EditKeywordExecuted"/>
+        <CommandBinding Command="{StaticResource cmdRemoveKeyword}" CanExecute="SelectedKeywordCanExecute" Executed="RemoveKeywordExecuted"/>
+    </Window.CommandBindings>
+    
+    <Grid>
+        <contr:Header Height="50" VerticalAlignment="Top" HeaderText="Image Information" InfoText="Here you can read and edit the image meta data">
+            <contr:Header.Icon>
+                <BitmapImage UriSource="/Effect FX;component/Resources/Help.ico"/>
+            </contr:Header.Icon>
+        </contr:Header>
+        <GroupBox Header="Size" Margin="12,56,12,0" Name="groupBox1" Height="169" VerticalAlignment="Top">
+            <Grid>
+                <GroupBox Header="DPI" Margin="0,6,6,0" Name="groupBox2" HorizontalAlignment="Right" Width="149" Height="102.723" VerticalAlignment="Top">
+                    <Grid>
+                        <Label HorizontalAlignment="Left" Margin="6,6,0,0" Name="label3" Width="19" Height="32" VerticalAlignment="Top">X:</Label>
+                        <Label Height="28.447" HorizontalAlignment="Left" Margin="6,0,0,11" Name="label4" VerticalAlignment="Bottom" Width="19">Y:</Label>
+                        <TextBox Height="23.447" Margin="31,8,6,0" Name="txtDPIX" VerticalAlignment="Top" />
+                        <TextBox Height="23" Margin="31,0,6,14.634" Name="txtDPIY" VerticalAlignment="Bottom" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Size" Margin="6,6,161,0" Name="groupBox3" Height="102.723" VerticalAlignment="Top">
+                    <Grid>
+                        <Label Margin="6,6,0,15" Name="label1" HorizontalAlignment="Left" Width="19">X:</Label>
+                        <Label HorizontalAlignment="Left" Margin="6,40,0,15" Name="label2" Width="19">Y:</Label>
+                        <TextBox Margin="31,6,6,0" Name="txtSizeX" Height="23.447" VerticalAlignment="Top" />
+                        <TextBox Height="23" Margin="31,0,6,16.634" Name="txtSizeY" VerticalAlignment="Bottom" />
+                    </Grid>
+                </GroupBox>
+                <Label Height="28" Margin="6,0,0,7" Name="label13" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="56">Format:</Label>
+                <Label Height="28" Margin="68,0,6,7" Name="lblFormat" VerticalAlignment="Bottom" HorizontalContentAlignment="Right">???</Label>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Meta-Data" Margin="12,231,12,0" Name="gbMetaData" Height="283" VerticalAlignment="Top">
+            <Grid>
+                <Label Height="28" Margin="6,6,0,0" Name="label5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Title:</Label>
+                <TextBox Height="23" Margin="6,40,161,0" Name="txtTitle" VerticalAlignment="Top" />
+                <Label Height="28" HorizontalAlignment="Right" Margin="0,6,35,0" Name="label6" VerticalAlignment="Top" Width="120">Copyright:</Label>
+                <TextBox Height="23" HorizontalAlignment="Right" Margin="0,40,6,0" Name="txtCopyright" VerticalAlignment="Top" Width="149" />
+                <Label Height="28" Margin="6,69,0,0" Name="label7" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Application (last edit):</Label>
+                <Label Margin="6,103,161,0" Name="label8" Height="27.723" VerticalAlignment="Top">Effect FX</Label>
+                <Label Height="28" Margin="0,69,6,0" Name="label9" VerticalAlignment="Top" HorizontalAlignment="Right" Width="149">Comment:</Label>
+                <TextBox Margin="0,103,6,0" Name="txtComment" Height="22.723" HorizontalAlignment="Right" VerticalAlignment="Top" Width="149" />
+                <Label Margin="6,137,0,0" Name="label10" HorizontalAlignment="Left" Width="120" Height="27.723" VerticalAlignment="Top">Subject:</Label>
+                <TextBox Height="23" Margin="6,170.723,161,0" Name="txtSubject" VerticalAlignment="Top" />
+                <Label HorizontalAlignment="Right" Margin="0,137,6,0" Name="label11" Width="149" Height="28" VerticalAlignment="Top">Date taken:</Label>
+                <TextBox Height="23" HorizontalAlignment="Right" Margin="0,170.723,6,0" Name="txtDateTaken" VerticalAlignment="Top" Width="149" />
+                <Label Height="28" Margin="6,199.723,0,0" Name="label12" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Rating:</Label>
+                <TextBox Height="23" Margin="6,233.723,161,0" Name="txtRating" VerticalAlignment="Top" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Location" Height="54" Margin="12,0,12,38" Name="groupBox5" VerticalAlignment="Bottom">
+            <Grid>
+                <Label Margin="6,6,6,0" Name="lblLocation" Height="27.723" VerticalAlignment="Top">???</Label>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Lists" Height="133" Margin="12,0,12,98" Name="gbList" VerticalAlignment="Bottom">
+            <Grid>
+                <Label Height="28" Margin="6,6,0,0" Name="label14" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Authors:</Label>
+                <Label Height="28" HorizontalAlignment="Right" Margin="0,6,35,0" Name="label15" VerticalAlignment="Top" Width="120">Keywords:</Label>
+                <ListBox Margin="6,40,161,6" Name="lstAuthors">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add" Name="miAddAuthors" Command="{StaticResource cmdAddAuthor}"/>
+                            <MenuItem Header="Edit" Name="miEditAuthors" Command="{StaticResource cmdEditAuthor}"/>
+                            <Separator/>
+                            <MenuItem Header="Remove" Name="miRemoveAuthors" Command="{StaticResource cmdRemoveAuthor}"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+                <ListBox HorizontalAlignment="Right" Margin="0,40,6,6" Name="lstKeywords" Width="149">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add" Name="miAddKeywords" Command="{StaticResource cmdAddKeyword}"/>
+                            <MenuItem Header="Edit" Name="miEditKeywords" Command="{StaticResource cmdEditKeyword}"/>
+                            <Separator/>
+                            <MenuItem Header="Remove" Name="miRemoveKeywords" Command="{StaticResource cmdRemoveKeyword}"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+            </Grid>
+        </GroupBox>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,12,9" Name="btnOK" VerticalAlignment="Bottom" Width="75" IsDefault="True" Click="btnOK_Click">OK</Button>
+        <Button Height="23" Margin="12,0,0,9" Name="btnCancel" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" IsCancel="True">Cancel</Button>
+    </Grid>
+</Window>

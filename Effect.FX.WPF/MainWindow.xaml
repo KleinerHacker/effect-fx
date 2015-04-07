@@ -1,0 +1,177 @@
+﻿<ribbon:RibbonWindow x:Class="Effect.FX.WPF.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+    xmlns:contr="clr-namespace:NET.Tools.WPF;assembly=NET.Tools.WPF.Controls"
+    xmlns:lan="clr-namespace:Effect.FX.WPF.IO"
+    Title="Effect FX" Height="435" Width="662" WindowState="Maximized" WindowStartupLocation="CenterScreen" Icon="/Effect FX;component/Resources/Icon.png" Loaded="Window_Loaded">
+
+    <ribbon:RibbonWindow.Resources>
+        <RoutedCommand x:Key="cmdExit"/>
+        <RoutedCommand x:Key="cmdOpen"/>
+        <RoutedCommand x:Key="cmdUndo"/>
+        <RoutedCommand x:Key="cmdRedo"/>
+        <RoutedCommand x:Key="cmdRotateLeft"/>
+        <RoutedCommand x:Key="cmdRotateRight"/>
+        <RoutedCommand x:Key="cmdFlipHorizontal"/>
+        <RoutedCommand x:Key="cmdFlipVertical"/>
+        <RoutedCommand x:Key="cmdSaveAs"/>
+        <RoutedCommand x:Key="cmdSave"/>
+        <RoutedCommand x:Key="cmdEffectExplorer"/>
+        <RoutedCommand x:Key="cmdRenderExplorer"/>
+        <RoutedCommand x:Key="cmdEffectManager"/>
+        <RoutedCommand x:Key="cmdRendererManager"/>
+        <RoutedCommand x:Key="cmdImageInfo"/>
+        <RoutedCommand x:Key="cmdCopy"/>
+        <RoutedCommand x:Key="cmdPrinterSetup"/>
+        <RoutedCommand x:Key="cmdPrint"/>
+        <RoutedCommand x:Key="cmdInfo"/>
+
+        <RoutedCommand x:Key="cmdImageNull"/>
+    </ribbon:RibbonWindow.Resources>
+
+    <ribbon:RibbonWindow.InputBindings>
+        <KeyBinding Command="{StaticResource cmdUndo}" Key="Z" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource cmdOpen}" Key="O" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource cmdRedo}" Key="Y" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource cmdRotateRight}" Key="RIGHT" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource cmdRotateLeft}" Key="LEFT" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource cmdFlipHorizontal}" Key="RIGHT" Modifiers="Control+Shift"/>
+        <KeyBinding Command="{StaticResource cmdFlipVertical}" Key="DOWN" Modifiers="Control+Shift"/>
+        <KeyBinding Command="{StaticResource cmdSave}" Key="S" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource cmdEffectExplorer}" Key="E" Modifiers="Control+Shift"/>
+        <KeyBinding Command="{StaticResource cmdRenderExplorer}" Key="R" Modifiers="Control+Shift"/>
+        <KeyBinding Command="{StaticResource cmdCopy}" Key="C" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource cmdPrint}" Key="P" Modifiers="Control"/>
+    </ribbon:RibbonWindow.InputBindings>
+
+    <ribbon:RibbonWindow.CommandBindings>
+        <CommandBinding Command="{StaticResource cmdUndo}" CanExecute="UndoCanExecute" Executed="UndoExecuted" />
+        <CommandBinding Command="{StaticResource cmdExit}" CanExecute="AlwaysCanExecute" Executed="ExitExecuted"/>
+        <CommandBinding Command="{StaticResource cmdOpen}" CanExecute="AlwaysCanExecute" Executed="OpenExecuted"/>
+        <CommandBinding Command="{StaticResource cmdRedo}" CanExecute="RedoCanExecute" Executed="RedoExecuted"/>
+        <CommandBinding Command="{StaticResource cmdRotateLeft}" CanExecute="ImageNotNullCanExecute" Executed="RotateLeftExecuted"/>
+        <CommandBinding Command="{StaticResource cmdRotateRight}" CanExecute="ImageNotNullCanExecute" Executed="RotateRightExecuted"/>
+        <CommandBinding Command="{StaticResource cmdFlipHorizontal}" CanExecute="ImageNotNullCanExecute" Executed="FlipHorizontalExecuted"/>
+        <CommandBinding Command="{StaticResource cmdFlipVertical}" CanExecute="ImageNotNullCanExecute" Executed="FlipVerticalExecuted"/>
+        <CommandBinding Command="{StaticResource cmdSaveAs}" CanExecute="ImageNotNullCanExecute" Executed="SaveAsExecuted"/>
+        <CommandBinding Command="{StaticResource cmdSave}" CanExecute="ImageNotNullCanExecute" Executed="SaveExecuted"/>
+        <CommandBinding Command="{StaticResource cmdEffectExplorer}" CanExecute="ImageNotNullCanExecute" Executed="EffectExplorerExecuted"/>
+        <CommandBinding Command="{StaticResource cmdRenderExplorer}" CanExecute="ImageNotNullCanExecute" Executed="RenderExplorerExecuted"/>
+        <CommandBinding Command="{StaticResource cmdEffectManager}" CanExecute="AlwaysCanExecute" Executed="EffectManagerExecuted"/>
+        <CommandBinding Command="{StaticResource cmdRendererManager}" CanExecute="AlwaysCanExecute" Executed="RendererManagerExecuted"/>
+        <CommandBinding Command="{StaticResource cmdImageInfo}" CanExecute="ImageNotNullCanExecute" Executed="ImageInfoExecuted"/>
+        <CommandBinding Command="{StaticResource cmdCopy}" CanExecute="ImageNotNullCanExecute" Executed="CopyExecuted"/>
+        <CommandBinding Command="{StaticResource cmdPrinterSetup}" CanExecute="AlwaysCanExecute" Executed="PrinterSetupExecuted"/>
+        <CommandBinding Command="{StaticResource cmdPrint}" CanExecute="ImageNotNullCanExecute" Executed="PrintExecuted"/>
+        <CommandBinding Command="{StaticResource cmdInfo}" CanExecute="AlwaysCanExecute" Executed="InfoExecuted"/>
+        
+        <CommandBinding Command="{StaticResource cmdImageNull}" CanExecute="ImageNotNullCanExecute"/>
+    </ribbon:RibbonWindow.CommandBindings>
+    
+    <Grid Name="grdRibbon">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <ribbon:Ribbon Name="ribbon">
+            <ribbon:Ribbon.ApplicationMenu>
+                <ribbon:RibbonApplicationMenu SmallImageSource="Resources\menu.png">
+                    <ribbon:RibbonApplicationMenu.AuxiliaryPaneContent>
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="{lan:Language Key=main.menu.site.title}" FontWeight="Bold"/>
+                            <Separator/>
+                            <StackPanel Orientation="Vertical" Name="pnlLastPictures"/>
+                        </StackPanel>    
+                    </ribbon:RibbonApplicationMenu.AuxiliaryPaneContent>
+                    
+                    <ribbon:RibbonApplicationMenu.FooterPaneContent>
+                        <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                            <ribbon:RibbonButton Label="{lan:Language Key=main.menu.bottom.about}" SmallImageSource="Resources\Info.ico" Name="btnInfo" FlowDirection="LeftToRight" Command="{StaticResource cmdInfo}" />
+                            <ribbon:RibbonButton Label="{lan:Language Key=main.menu.bottom.help}" SmallImageSource="Resources\Help.ico" Name="btnHelpTheme" FlowDirection="LeftToRight" />
+                            <ribbon:RibbonMenuButton Label="{lan:Language Key=main.menu.bottom.preferences}" FlowDirection="LeftToRight">
+                                <ribbon:RibbonMenuItem Header="{lan:Language Key=main.menu.bottom.preferences.plugins}" ImageSource="Resources\Plugin.png">
+                                    <ribbon:RibbonMenuItem Header="{lan:Language Key=main.menu.bottom.preferences.plugins.effects}" ImageSource="Resources\EffectExplorer.png" Command="{StaticResource cmdEffectManager}" />
+                                    <ribbon:RibbonMenuItem Header="{lan:Language Key=main.menu.bottom.preferences.plugins.renderer}" ImageSource="Resources\RenderExplorer.png" Command="{StaticResource cmdRendererManager}" />
+                                </ribbon:RibbonMenuItem>
+                                <ribbon:RibbonMenuItem Header="{lan:Language Key=main.menu.bottom.preferences.language}" Name="rmiLanguage">
+                                    <ribbon:RibbonMenuItem Header="English" Click="EnglishClick"/>
+                                </ribbon:RibbonMenuItem>
+                            </ribbon:RibbonMenuButton>
+                        </StackPanel>
+                    </ribbon:RibbonApplicationMenu.FooterPaneContent>
+                    
+                    <ribbon:RibbonApplicationMenuItem Header="{lan:Language Key=main.menu.open}" ImageSource="Resources\Open.ico" Name="ramiOpen" Command="{StaticResource cmdOpen}" ToolTipTitle="Open (Ctrl+O)" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipDescription="Open one or more pictures from the computer. The program will start one instance for each picture" />
+                    <ribbon:RibbonSeparator/>
+                    <ribbon:RibbonApplicationMenuItem Header="{lan:Language Key=main.menu.save}" ImageSource="Resources\Save.ico" Name="ramiSave" Command="{StaticResource cmdSave}" ToolTipTitle="Save (Ctrl+S)" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipFooterTitle="Press F1 for more help" ToolTipDescription="Save the picture to the current file" />
+                    <ribbon:RibbonApplicationMenuItem Header="{lan:Language Key=main.menu.saveas}" Name="ramiSaveAs" Command="{StaticResource cmdSaveAs}" ToolTipTitle="Save as" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipFooterTitle="Press F1 for more help" ToolTipDescription="Save the picture in a new file on the computer" />
+                    <ribbon:RibbonSeparator/>
+                    <ribbon:RibbonApplicationMenuItem Header="{lan:Language Key=main.menu.print}" ImageSource="Resources\Print.ico" Name="ramiPrint" ToolTipTitle="Print (Ctrl+P)" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipDescription="Print the picture. A dialog will be fit the picture to the site for the printer." Command="{StaticResource cmdPrint}"/>
+                    <ribbon:RibbonApplicationMenuItem Header="{lan:Language Key=main.menu.print.setup}" ImageSource="Resources\PrinterSetup.ico" Name="ramiPrinterSetup" ToolTipTitle="Printer Setup" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipDescription="Opens the printer setup dialog. Here you can configure the printer settings for printing the picture" Command="{StaticResource cmdPrinterSetup}" />
+                    <ribbon:RibbonSeparator/>
+                    <ribbon:RibbonApplicationMenuItem Header="{lan:Language Key=main.menu.exit}" Name="ramiExit" Command="{StaticResource cmdExit}" ToolTipTitle="Exit" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipDescription="Leave the program" />
+                </ribbon:RibbonApplicationMenu>
+            </ribbon:Ribbon.ApplicationMenu>
+            
+            <ribbon:Ribbon.QuickAccessToolBar>
+                <ribbon:RibbonQuickAccessToolBar>
+                    <ribbon:RibbonButton ToolTip="Open" SmallImageSource="Resources\Open.ico" Name="btnQuickOpen" Command="{StaticResource cmdOpen}" />
+                    <ribbon:RibbonButton ToolTip="Save as" SmallImageSource="Resources\Save.ico" Name="btnQuickSaveAs" Command="{StaticResource cmdSave}" />
+                    <ribbon:RibbonSeparator/>
+                    <ribbon:RibbonButton ToolTip="Undo" SmallImageSource="Resources\Undo.ico" Name="btnQuickUndo" Command="{StaticResource cmdUndo}" />
+                    <ribbon:RibbonButton ToolTip="Redo" SmallImageSource="Resources\Redo.ico" Name="btnQuickRedo" Command="{StaticResource cmdRedo}" />
+                    <ribbon:RibbonSeparator/>
+                    <ribbon:RibbonButton ToolTip="Help" SmallImageSource="Resources\Help.ico" Name="btnQuickHelp"/>
+                </ribbon:RibbonQuickAccessToolBar>
+            </ribbon:Ribbon.QuickAccessToolBar>
+            
+            <ribbon:RibbonTab Header="{lan:Language Key=main.ribbon.default}">
+                <ribbon:RibbonGroup Header="{lan:Language Key=main.ribbon.default.edit}">
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.edit.undo}" LargeImageSource="Resources\Undo.ico" Name="btnUndo" Command="{StaticResource cmdUndo}" ToolTipTitle="Undo (Ctrl+Z)" ToolTipDescription="Make an action undo." ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" />
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.edit.redo}" LargeImageSource="Resources\Redo.ico" Name="btnRedo" Command="{StaticResource cmdRedo}" ToolTipFooterTitle="Press F1 for more help" ToolTipDescription="Make an action redo after it was make undo." ToolTipTitle="Redo (Ctrl+Y)" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" />
+                    <ribbon:RibbonSeparator/>
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.edit.copy}" LargeImageSource="Resources\Copy.ico" Name="btnCopy" Command="{StaticResource cmdCopy}" ToolTipTitle="Copy (Ctrl+C)" ToolTipDescription="Copy the complete image in the active state with all effects on it" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="{lan:Language Key=main.ribbon.default.manipulation}">
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.manipulation.left}" LargeImageSource="Resources\RotateLeft.png" Name="btnRotateLeft" Command="{StaticResource cmdRotateLeft}" ToolTipTitle="Rotate (Ctrl+Left)" ToolTipDescription="Rotate the picture to the left site" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" />
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.manipulation.right}" LargeImageSource="Resources\RotateRight.png" Name="btnRotateRight" Command="{StaticResource cmdRotateRight}" ToolTipTitle="Rotate right (Ctrl+Right)" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipDescription="Rotate the picture to the right site" />
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.manipulation.flipX}" SmallImageSource="Resources\FlipX.png" Name="btnFlipX" Command="{StaticResource cmdFlipHorizontal}" ToolTipTitle="Flip horizontal (Ctrl+Shift+Right" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipDescription="Flip the picture horizontal on a vertical axis" />
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.manipulation.flipY}" SmallImageSource="Resources\FlipY.png" Name="btnFlipY" Command="{StaticResource cmdFlipVertical}" ToolTipTitle="Flip vertical (Ctrl+Shift+Down)" ToolTipFooterTitle="Press F1 for more help" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipDescription="Flip the picture vertical on a horizontal axis" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="">
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.default.image}" LargeImageSource="Resources\imageinfo.png" Name="btnImageInfo" Command="{StaticResource cmdImageInfo}" ToolTipTitle="Image Informations" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipFooterTitle="Press F1 for more help" ToolTipDescription="Shows information about the loaded image. You can edit the information if it is possible." />
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            
+            <ribbon:RibbonTab Header="{lan:Language Key=main.ribbon.effects}" Name="rtEffects">
+                <ribbon:RibbonGroup Header="">
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.effects.explorer}" LargeImageSource="Resources\EffectExplorer.png" Name="btnEffectExplorer" Command="{StaticResource cmdEffectExplorer}" ToolTipTitle="Effect Explorer (Ctrl+Shift+E)" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipFooterTitle="Press F1 for more help" ToolTipDescription="Shows all installed effects for this program. Here you can edit the effects settings and use it." />
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            
+            <ribbon:RibbonTab Header="{lan:Language Key=main.ribbon.renderer}" Name="rtRenderer">
+                <ribbon:RibbonGroup Header="">
+                    <ribbon:RibbonButton Label="{lan:Language Key=main.ribbon.renderer.explorer}" LargeImageSource="Resources\RenderExplorer.png" Name="btnRendererExplorer" Command="{StaticResource cmdRenderExplorer}" ToolTipTitle="Render Explorer (Ctrl+Shift+R)" ToolTipImageSource="/Effect FX;component/Resources/Info.ico" ToolTipFooterTitle="Press F1 for more help" ToolTipDescription="Shows all installed renderer for this program. Here you can edit the renderer settings and use it." />
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+        </ribbon:Ribbon>
+        
+        <Grid Grid.Row="1" Name="grdMain">
+            <Image Grid.Row="1" Name="imgPicture" Stretch="Uniform" StretchDirection="DownOnly" Margin="0,0,0,29" />
+            <StatusBar Height="23" Name="statusBar1" VerticalAlignment="Bottom" Grid.Row="1">
+                <StatusBarItem>Size:</StatusBarItem>
+                <StatusBarItem Name="lblSize">0 KB</StatusBarItem>
+                <StatusBarItem>Dimension:</StatusBarItem>
+                <StatusBarItem Name="lblDimension">0x0</StatusBarItem>
+                <StatusBarItem>Depth:</StatusBarItem>
+                <StatusBarItem Name="lblDepth">0</StatusBarItem>
+                <StatusBarItem>Bits</StatusBarItem>
+                <StatusBarItem>DPI:</StatusBarItem>
+                <StatusBarItem Name="lblDPI">0x0</StatusBarItem>
+                <StatusBarItem>Pixel-Format:</StatusBarItem>
+                <StatusBarItem Name="lblPixelFormat">---</StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Grid>
+</ribbon:RibbonWindow>

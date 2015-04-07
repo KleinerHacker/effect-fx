@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools.WPF.Tools</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.UIElementExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SolidColorBrushExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.RectExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.RectExtensions.IsPointInRect(System.Windows.Rect,System.Windows.Point[])">
+            <summary>
+            Verifies that all points are in the rect
+            </summary>
+            <param name="rect"></param>
+            <param name="p">List of points to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.RectExtensions.IsRectInRect(System.Windows.Rect,System.Windows.Rect[])">
+            <summary>
+            Verifies that all rects are in the given rect
+            </summary>
+            <param name="rect"></param>
+            <param name="r">List of rectangles to check</param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.WPFFont">
+            <summary>
+            Default font for WPF
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WPFFont.op_Implicit(NET.Tools.WPFFont)~System.Windows.Media.FontFamily">
+            <summary>
+            Implicit convertion to font family
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.WPFFont.op_Implicit(NET.Tools.WPFFont)~System.Windows.FontStyle">
+            <summary>
+            Implicit conversion to font style
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.WPFFont.op_Implicit(NET.Tools.WPFFont)~System.Windows.FontWeight">
+            <summary>
+            Implicit converion to font weight
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.WPFFont.op_Implicit(NET.Tools.WPFFont)~System.Double">
+            <summary>
+            Implicit conversion to font size (double)
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.WPFFont.op_Implicit(NET.Tools.WPFFont)~System.Windows.FontStretch">
+            <summary>
+            Implicit converion to font stretch
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.TextBoxExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.TextBoxExtensions.AddInputValidator(System.Windows.Controls.TextBox,System.Func{System.String,System.Boolean},System.Windows.Input.Key[])">
+            <summary>
+            Add a validator and change all incorrect inputs
+            </summary>
+            <param name="textBox"></param>
+            <param name="validator">The validator function</param>
+            <param name="additionalKeys">Additional keys to ignore</param>
+        </member>
+        <member name="M:NET.Tools.TextBoxExtensions.AddMarkValidator(System.Windows.Controls.TextBox,System.Func{System.String,System.Boolean},System.Windows.Media.Brush)">
+            <summary>
+            Add a validator and mark the box with a colored border if the  content is incorrect
+            </summary>
+            <param name="textBox"></param>
+            <param name="validator">The validator function</param>
+            <param name="errBrush">Brush for error</param>
+        </member>
+        <member name="M:NET.Tools.TextBoxExtensions.AddMarkValidator(System.Windows.Controls.TextBox,System.Func{System.String,System.Boolean})">
+            <summary>
+            Add a validator and mark the box with a colored border if the  content is incorrect
+            </summary>
+            <param name="textBox"></param>
+            <param name="validator">The validator function</param>
+        </member>
+        <member name="T:NET.Tools.LinearGradientBrushExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SizeExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.WindowExtensions">
+            <summary>
+            Window Extensions
+            
+            Contains this tool methods:
+            - Windows 7 TaskBar Control
+            </summary>
+        </member>
+        <member name="M:NET.Tools.WindowExtensions.GetHandle(System.Windows.Window)">
+            <summary>
+            Gets the GetHandle() of this WPF window
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.ColorExtensions">
+            <summary>
+            Extensions for WPF Color
+            </summary>
+        </member>
+        <member name="T:NET.Tools.AbstractLanguageExtension">
+            <summary>
+            Abstract class for implementation of a internationality in wpf
+            
+            <example>
+            This example shows you to use this markup extension:
+            <code>
+            public class LanguageExtension : AbstractLanguageExtension
+            {
+                protected override String GetString(String key)
+                {
+                    return MyLanguageManager.GetString(key);
+                }
+            }
+            // XAML:
+            ...Content="{tools:Language ExampleText1}"...
+            </code>
+            </example>
+            </summary>
+        </member>
+        <member name="M:NET.Tools.AbstractLanguageExtension.GetString(System.String)">
+            <summary>
+            Gets the string to the given key with the current ui culture
+            </summary>
+            <param name="key">key to search string</param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.BitmapSourceExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.BitmapSourceExtensions.ToBitmap(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            Convert a Bitmap-Source to a System.Drawing.Bitmap
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.BitmapSourceExtensions.ToIcon(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            Convert a Bitmap-Source to a System.Drawing.Icon
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.BitmapSourceExtensions.RotateFlip(System.Windows.Media.Imaging.BitmapSource,System.Drawing.RotateFlipType)">
+            <summary>
+            Rotate or / and Flip the bitmap source to a new source
+            </summary>
+            <param name="source"></param>
+            <param name="type">RoateFlipType</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.BitmapSourceExtensions.UseEffect(System.Windows.Media.Imaging.BitmapSource,System.Windows.Media.Effects.Effect,System.Windows.Media.Visual)">
+            <summary>
+            Create an effect on a bitmap source
+            </summary>
+            <param name="source"></param>
+            <param name="effect">The effect</param>
+            <param name="visual">A visual to get the dpi from it</param>
+            <returns>bitmap source with effect</returns>
+        </member>
+        <member name="M:NET.Tools.BitmapSourceExtensions.GetThumbnailImage(System.Windows.Media.Imaging.BitmapSource,System.Double,System.Windows.Media.Visual)">
+            <summary>
+            Create a thumbnail with the percent from the original image
+            </summary>
+            <param name="source"></param>
+            <param name="percent">Percent</param>
+            <param name="visual">A visual to get the dpi from it</param>
+            <returns>Thumbnail image</returns>
+        </member>
+        <member name="M:NET.Tools.BitmapSourceExtensions.GetThumbnailImage(System.Windows.Media.Imaging.BitmapSource,System.Int32,System.Int32,System.Windows.Media.Visual)">
+            <summary>
+            Create a thumbnail with the maximum dimension in uniform mode
+            </summary>
+            <param name="source"></param>
+            <param name="maxWidth">Maximum width</param>
+            <param name="maxHeight">Maximum height</param>
+            <param name="visual">A visual to get the dpi from it</param>
+            <returns>Thumbnail image</returns>
+        </member>
+        <member name="M:NET.Tools.BitmapSourceExtensions.GetThumbnailImage(System.Windows.Media.Imaging.BitmapSource,System.Int32,System.Int32,System.Windows.Media.Visual,System.Drawing.Image.GetThumbnailImageAbort,System.IntPtr)">
+            <summary>
+            Create a thumbnail with the given width and height (stretch)
+            </summary>
+            <param name="source"></param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+            <param name="callback"></param>
+            <param name="callbackData"></param>
+            <param name="visual">A visual to get the dpi from it</param>
+            <returns>Thumbnail image</returns>
+        </member>
+        <member name="T:NET.Tools.BitmapEncoding">
+            <summary>
+            \addtogroup enums
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.UriCreator">
+            <summary>
+            Class to build uris
+            </summary>
+        </member>
+        <member name="M:NET.Tools.UriCreator.CreateUri(System.String,System.String)">
+            <summary>
+            Create an uri from modul and path:
+            <example>
+            Uri uri = CreateUri("MyModul", "Resources/myImage.png");
+            ... build this uri ...
+            Uri uri = new Uri(@"pack://application:,,,/MyModul;component/Resources/myImage.png");
+            </example>
+            </summary>
+            <param name="modul">Modul to load from</param>
+            <param name="path">Path to the file in the modul</param>
+            <returns>A correct uri</returns>
+        </member>
+        <member name="M:NET.Tools.UriCreator.CreateUriString(System.String,System.String)">
+            <summary>
+            Create an uri string from modul and path:
+            <example>
+            String uri = CreateUriString("MyModul", "Resources/myImage.png");
+            ... build this uri ...
+            String uri = @"pack://application:,,,/MyModul;component/Resources/myImage.png";
+            </example>
+            </summary>
+            <param name="modul">Modul to load from</param>
+            <param name="path">Path to the file in the modul</param>
+            <returns>A correct uri string</returns>
+        </member>
+        <member name="T:NET.Tools.PointExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.PointExtensions.IsPointInRect(System.Windows.Point,System.Windows.Rect[])">
+            <summary>
+            Verifies that the point is in all rects
+            </summary>
+            <param name="p"></param>
+            <param name="rect">Rectangle(s) to check</param>
+            <returns>TRUE, if the point in all rectangles</returns>
+        </member>
+    </members>
+</doc>

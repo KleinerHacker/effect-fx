@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools.COM</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.MessageInterpreter">
+            <summary>
+            Helper class for message interpretation
+            </summary>
+        </member>
+        <member name="M:NET.Tools.MessageInterpreter.CheckWmCommand(System.Windows.Forms.Message)">
+            <summary>
+            Try to interpret the message as wmCommand
+            </summary>
+            <param name="msg">The message to check</param>
+            <returns>The wmCommandResult or null if it is not a wmCommand message</returns>
+        </member>
+        <member name="T:NET.Tools.MessageExtensions">
+            <summary>
+            Extensions for Message
+            </summary>
+        </member>
+        <member name="T:NET.Tools.NativeRect">
+            <summary>
+            A wrapper for a NativeRect struct
+            </summary>
+        </member>
+        <member name="M:NET.Tools.NativeRect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new NativeRect initialized with supplied values.
+            </summary>
+            <param name="left">Position of left edge</param>
+            <param name="top">Position of top edge</param>
+            <param name="right">Position of right edge</param>
+            <param name="bottom">Position of bottom edge</param>
+        </member>
+        <member name="M:NET.Tools.NativeRect.op_Equality(NET.Tools.NativeRect,NET.Tools.NativeRect)">
+            <summary>
+            Determines if two NativeRects are equal.
+            </summary>
+            <param name="first">First NativeRect</param>
+            <param name="second">Second NativeRect</param>
+            <returns>True if first NativeRect is equal to second; false otherwise.</returns>
+        </member>
+        <member name="M:NET.Tools.NativeRect.op_Inequality(NET.Tools.NativeRect,NET.Tools.NativeRect)">
+            <summary>
+            Determines if two NativeRects are not equal
+            </summary>
+            <param name="first">First NativeRect</param>
+            <param name="second">Second NativeRect</param>
+            <returns>True if first is not equal to second; false otherwise.</returns>
+        </member>
+        <member name="M:NET.Tools.NativeRect.Equals(System.Object)">
+            <summary>
+            Determines if the NativeRect is equal to another Rect.
+            </summary>
+            <param name="obj">Another NativeRect to compare</param>
+            <returns>True if this NativeRect is equal to the one provided; false otherwise.</returns>
+        </member>
+        <member name="M:NET.Tools.NativeRect.GetHashCode">
+            <summary>
+            Creates a hash code for the NativeRect
+            </summary>
+            <returns>Returns hash code for this NativeRect</returns>
+        </member>
+        <member name="P:NET.Tools.NativeRect.Left">
+            <summary>
+            Position of left edge
+            </summary>            
+        </member>
+        <member name="P:NET.Tools.NativeRect.Top">
+            <summary>
+            Position of top edge
+            </summary>            
+        </member>
+        <member name="P:NET.Tools.NativeRect.Right">
+            <summary>
+            Position of right edge
+            </summary>            
+        </member>
+        <member name="P:NET.Tools.NativeRect.Bottom">
+            <summary>
+            Position of bottom edge
+            </summary>            
+        </member>
+        <member name="T:NET.Tools.WmCommandResult">
+            <summary>
+            Represent a wmCommand result from this message
+            </summary>
+        </member>
+        <member name="T:NET.Tools.HResult">
+            <summary>
+            HRESULT Wrapper    
+            </summary>    
+        </member>
+        <member name="F:NET.Tools.HResult.Ok">
+            <summary>     
+            S_OK          
+            </summary>    
+        </member>
+        <member name="F:NET.Tools.HResult.False">
+            <summary>
+            S_FALSE
+            </summary>        
+        </member>
+        <member name="F:NET.Tools.HResult.InvalidArguments">
+            <summary>
+            E_INVALIDARG
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.OutOfMemory">
+            <summary>
+            E_OUTOFMEMORY
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.NoInterface">
+            <summary>
+            E_NOINTERFACE
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.Fail">
+            <summary>
+            E_FAIL
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.ElementNotFound">
+            <summary>
+            E_ELEMENTNOTFOUND
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.TypeElementNotFound">
+            <summary>
+            TYPE_E_ELEMENTNOTFOUND
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.NoObject">
+            <summary>
+            NO_OBJECT
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.Win32ErrorCanceled">
+            <summary>
+            Win32 Error code: ERROR_CANCELLED
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.Canceled">
+            <summary>
+            ERROR_CANCELLED
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.ResourceInUse">
+            <summary>
+            The requested resource is in use
+            </summary>
+        </member>
+        <member name="F:NET.Tools.HResult.AccessDenied">
+            <summary>
+            The requested resources is read-only.
+            </summary>
+        </member>
+        <member name="T:NET.Tools.COMConstants">
+            <summary>
+            Constants for all COM Actions
+            </summary>
+        </member>
+    </members>
+</doc>

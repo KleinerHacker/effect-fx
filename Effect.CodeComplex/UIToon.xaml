@@ -1,0 +1,9 @@
+﻿<interface:UIControl x:Class="Effect.CodeComplex.UIToon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:interface="clr-namespace:Plugin.Interface;assembly=Plugin.Interface"
+    Height="57" Width="336">
+    <Grid>
+        <Slider Height="22" Margin="12,12,12,0" Name="sldFactor" VerticalAlignment="Top" Maximum="25" Minimum="1" Value="3" ValueChanged="sldFactor_ValueChanged" />
+    </Grid>
+</interface:UIControl>

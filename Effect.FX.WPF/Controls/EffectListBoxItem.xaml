@@ -1,0 +1,10 @@
+﻿<ListBoxItem xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Effect.FX.WPF.Controls.EffectListBoxItem">
+    
+    <StackPanel Orientation="Horizontal">
+        <Image Name="imgIcon" HorizontalAlignment="Left" Stretch="Uniform" StretchDirection="DownOnly" Width="16" Height="16"/>
+        <Label Name="lblText" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+    </StackPanel>
+    
+</ListBoxItem>

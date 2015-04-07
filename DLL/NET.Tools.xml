@@ -1,0 +1,1848 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NET.Tools</name>
+    </assembly>
+    <members>
+        <member name="T:NET.Tools.UpdateService`1">
+            <summary>
+            Represent a class for a service for updating processes via internet
+            
+            <example>
+            This code example shows you to create a update service:
+            <code>
+            using (UpdateService{TestUpdateServer} service = 
+                       new UpdateService{TestUpdateServer}(50315, "Updater"))
+                   {
+                       service.Connect();            
+                       while(true)
+                       {
+                       }            
+                       service.Disconnect();
+                   }
+            </code>
+            </example>
+            </summary>
+            <seealso cref="T:NET.Tools.UpdateServer"/>
+            <seealso cref="T:NET.Tools.DefaultUpdateServer"/>
+            <typeparam name="T">The type of the service object. Must be a class inherited from the UpdateServer class</typeparam>
+        </member>
+        <member name="T:NET.Tools.IConnection">
+            <summary>
+            Interface for all connections
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SwitchArgument">
+            <summary>
+            Represent a switch argument
+            <example>
+            An example for a switch argument type is:
+            - program.exe -D
+            - program.exe +f
+            - program.exe --help
+            </example>
+            </summary>
+        </member>
+        <member name="T:NET.Tools.IArgument">
+            <summary>
+            Interface for a defualt argument
+            </summary>
+            <see cref="T:NET.Tools.PureArgument`1"/>
+            <see cref="T:NET.Tools.SwitchArgument"/>
+            <see cref="T:NET.Tools.SwitchedContentArgument`1"/>
+        </member>
+        <member name="M:NET.Tools.IArgument.Check(System.String)">
+            <summary>
+            Check the given argument
+            </summary>
+            <param name="arg">Argument</param>
+            <returns>The result of this method</returns>
+            <see cref="T:NET.Tools.ArgumentCheckResult"/>
+        </member>
+        <member name="M:NET.Tools.IArgument.Reset">
+            <summary>
+            Reset the active argument
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IArgument.IsSet">
+            <summary>
+            TRUE, if the argument is set
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IArgument.IsOptional">
+            <summary>
+            TRUE, if the argument is optional
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IArgument.IsSeveralTimes">
+            <summary>
+            TRUE, if the argument can set more than one times 
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IArgument.HelpText">
+            <summary>
+            Represent the helptext if the help page is shown
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IArgument.ErrorText">
+            <summary>
+            Represent an errortext if the argument check has failed
+            <remarks>
+            Use %message% to put in the real error message (<b>only in english</b>)
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IArgument.Level">
+            <summary>
+            Get the level of this argument (for the order)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ISwitchArgument">
+            <summary>
+            Interface for switch arguments
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ISwitchArgument.Switch">
+            <summary>
+            Represent the switch
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ISwitchArgument.SwitchCharacter">
+            <summary>
+            Represent the switch character
+            </summary>
+        </member>
+        <member name="M:NET.Tools.SwitchArgument.CreateHelpArgument(NET.Tools.SwitchCharacter)">
+            <summary>
+            Create a default help argument with the given switch character. Text is always '?'
+            </summary>
+            <param name="character">Switch character</param>
+            <returns>Default help argument</returns>
+        </member>
+        <member name="T:NET.Tools.AssemblyAppenderStream">
+            <summary>
+            Represent a special stream from the FileAppenderStream that appends data to the main executed file or other assemblies
+            
+            <remarks>
+            This stream cannot be write chaches back to assembly file! Remember that all known assemblies in
+            the program are opened at runtime.
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:NET.Tools.FileAppenderStream">
+            <summary>
+            Represent a stream to read and write appended data on it with this stream
+            </summary>
+        </member>
+        <member name="M:NET.Tools.FileAppenderStream.#ctor(System.String)">
+            <summary>
+            Create the stream object
+            </summary>
+            <param name="fileName">File to write and read appended data</param>
+        </member>
+        <member name="M:NET.Tools.FileAppenderStream.Close(System.Boolean)">
+            <summary>
+            Close the file appender stream
+            </summary>
+            <param name="writeBack">
+            TRUE if the stream must be write the content of himself to the appender file.
+            <remarks>
+            The file must be closed to this time
+            </remarks>
+            </param>
+        </member>
+        <member name="M:NET.Tools.FileAppenderStream.Close">
+            <summary>
+            Close the stream and write the content of himself back to file
+            </summary>
+        </member>
+        <member name="M:NET.Tools.AssemblyAppenderStream.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Create the stream object
+            </summary>
+            <param name="asm">Assembly to open</param>
+        </member>
+        <member name="M:NET.Tools.AssemblyAppenderStream.Close(System.Boolean)">
+            <summary>
+            Close the file. WriteBack must be false! See remarks of this class for informations
+            </summary>
+            <param name="writeBack">Must be false</param>
+            <exception cref="T:System.NotSupportedException">
+            Is thrown if the writeBack parameter is true
+            </exception>
+        </member>
+        <member name="T:NET.Tools.UnsignedIntegerExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ObjectExtensions">
+            <summary>
+            Contains all object extensions
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ObjectExtensions.IsBetween``1(``0,``0,``0)">
+            <summary>
+            Check the value of the given bounds
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="min">Minimum bound</param>
+            <param name="max">Maximum bound</param>
+            <returns>TRUE, if the value is in the bounds</returns>
+        </member>
+        <member name="M:NET.Tools.ObjectExtensions.ToBytes``1(``0)">
+            <summary>
+            Create a byte array from the object
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns>Buffer with bytes of object content</returns>
+        </member>
+        <member name="M:NET.Tools.ObjectExtensions.FromBytes``1(``0,System.Byte[])">
+            <summary>
+            Gets the object from the given byte array
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="buffer">The byte array with the object content</param>
+            <returns>The object with his content</returns>
+        </member>
+        <member name="M:NET.Tools.ObjectExtensions.PutInto``1(``0,``0,``0)">
+            <summary>
+            Press the value into the bounds
+            </summary>
+            <param name="value"></param>
+            <param name="min">Minimum</param>
+            <param name="max">Maximum</param>
+            <returns>A value between minimum and maximum</returns>
+        </member>
+        <member name="M:NET.Tools.ObjectExtensions.IsIn``1(``0,``0[])">
+            <summary>
+            Check the given list with the value
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="list">Values to check with value</param>
+            <returns>TRUE, if one of values is equals value</returns>
+        </member>
+        <member name="M:NET.Tools.ObjectExtensions.IsNotIn``1(``0,``0[])">
+            <summary>
+            Is the inverted method of IsIn{T}
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.IntegerExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.DriveInfoExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.MultiCondition">
+            <summary>
+            Multi condition class template
+            </summary>
+        </member>
+        <member name="T:NET.Tools.IRepeater">
+            <summary>
+            Interface for all repeater
+            </summary>
+        </member>
+        <member name="M:NET.Tools.IRepeater.GetNextRepeating(System.DateTime,System.UInt32)">
+            <summary>
+            Gets the next repeating started by the given date
+            </summary>
+            <param name="date">Date of start</param>
+            <param name="repeatCount">Count of repeating</param>
+            <returns>The next repeating</returns>
+        </member>
+        <member name="P:NET.Tools.IRepeater.Value">
+            <summary>
+            Repeat value
+            </summary>
+        </member>
+        <member name="P:NET.Tools.NextRepeating.Length">
+            <summary>
+            Length since the start date
+            </summary>
+        </member>
+        <member name="P:NET.Tools.NextRepeating.DestinationDate">
+            <summary>
+            Destination date (next appointment)
+            </summary>
+        </member>
+        <member name="P:NET.Tools.NextRepeating.SourceDate">
+            <summary>
+            Source date (first appointment)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.UpdateServer">
+            <summary>
+            Represent the abstract class for all update services implementations
+            </summary>
+        </member>
+        <member name="T:NET.Tools.IUpdateServer">
+            <summary>
+            Represent the interface for all update services
+            </summary>
+        </member>
+        <member name="M:NET.Tools.IUpdateServer.GetNewVersion(System.Version)">
+            <summary>
+            Get the new version number if it exists
+            </summary>
+            <param name="currentVersion">The current version</param>
+            <returns>The new version or null, if no newer version exists</returns>
+        </member>
+        <member name="M:NET.Tools.IUpdateServer.CheckForUpdate(System.Version)">
+            <summary>
+            Check for updates
+            </summary>
+            <param name="currentVersion">The current version number</param>
+            <returns>TRUE, if there are a newer version</returns>
+        </member>
+        <member name="M:NET.Tools.IUpdateServer.DownloadUpdate(NET.Tools.IFileLoader)">
+            <summary>
+            Download the new version as setup file
+            </summary>
+            <param name="fileLoader">Load the file to local space</param>
+        </member>
+        <member name="T:NET.Tools.CharacterExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.RemoteTCPService`1">
+             <summary>
+             Represent a tcp/ip remote service
+             </summary>
+             <typeparam name="T">Type of the service object. Must be inherited from the class MarshalByRefObject</typeparam>
+             <example>
+             This example shows you to create a tcp/ip remote service:
+             <code>
+             using (RemoteTCPService{RemoteService} service =
+                           new RemoteTCPService{RemoteService}(50315, "TestRemoting", WellKnownObjectMode.Singleton))
+                    {
+                        service.Connect();
+                        while(true)
+                        {
+                        }
+                        service.Disconnect();
+                    }
+             </code>
+             Remote Service:
+             <code>
+             public class RemoteService : MarshalByRefObject, IRemoteService
+             {
+                #region IRemoteService Member
+            
+                public double Add(double a, double b)
+                {
+                    return a + b;
+                }
+            
+                public double Mul(double a, double b)
+                {
+                    return a * b;
+                }
+            
+                public double Div(double a, double b)
+                {
+                    return a / b;
+                }
+            
+                public double Sub(double a, double b)
+                {
+                    return a - b;
+                }
+            
+                #endregion
+             }
+             </code>
+             IRemoteService:
+             <code>
+             public interface IRemoteService
+             {
+                double Add(double a, double b);
+                double Mul(double a, double b);
+                double Div(double a, double b);
+                double Sub(double a, double b);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="T:NET.Tools.RemoteConnection`1">
+            <summary>
+            Abtract class for all remote connections (client and service)
+            </summary>
+            <typeparam name="T">The remoting object type</typeparam>
+        </member>
+        <member name="T:NET.Tools.IRemoteConnection`1">
+            <summary>
+            Interface for all remoting connections
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IRemoteConnection`1.ServiceType">
+            <summary>
+            Type of service object
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IRemoteConnection`1.ServiceObject">
+            <summary>
+            Service object
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IRemoteConnection`1.ServiceName">
+            <summary>
+            Service name
+            </summary>
+        </member>
+        <member name="M:NET.Tools.RemoteConnection`1.ConnectInternal">
+            <summary>
+            Connect to the service or start of service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.IDateAppointment">
+            <summary>
+            Represent an interface for all date appointments on a fixed datetime
+            </summary>
+        </member>
+        <member name="T:NET.Tools.IAppointment">
+            <summary>
+            Interface for all appointments objects
+            </summary>
+        </member>
+        <member name="M:NET.Tools.IAppointment.IsOnDate(System.DateTime)">
+            <summary>
+            TRUE if the appointment is on this date
+            </summary>
+            <param name="date">The date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.IAppointment.CreateAppointmentEntitiesOnDate(System.DateTime)">
+            <summary>
+            Creates all appointment entities of himself on this date
+            </summary>
+            <param name="date">Date to check</param>
+            <returns>The appointment entities or null if no this appointment on this date</returns>
+        </member>
+        <member name="P:NET.Tools.IAppointment.Length">
+            <summary>
+            Length of the appointment
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IDateAppointment.Date">
+            <summary>
+            Date of appointment
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ExternalLanguageManager">
+            <summary>
+            Represent a language manager for external language files
+            
+            You need:
+            - Default.xml: Fallback if key is not found in culture list
+            - de-DE.xml (e. g.): list for the culture 'de' (language german)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.LanguageManager">
+            <summary>
+            Represent the abstract class for all language managers
+            </summary>
+        </member>
+        <member name="M:NET.Tools.LanguageManager.GetString(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Get a string value from language file with the current ui culture
+            </summary>
+            <param name="key">Key of string</param>
+            <param name="culture">Culture for searching key for language</param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.StreamExtensions">
+            <summary>
+            Contains all stream extensions
+            </summary>
+        </member>
+        <member name="M:NET.Tools.StreamExtensions.CopyStream(System.IO.Stream,System.IO.Stream,System.UInt32,System.Action{System.Int64,System.Int64})">
+            <summary>
+            Copy from source stream to destination stream
+            </summary>
+            <param name="stream">Source stream</param>
+            <param name="dest">Destination stream</param>
+            <param name="bufferSize">Buffer size of one copy action</param>
+            <param name="progress">Action for the progress change (max, value)</param>
+        </member>
+        <member name="M:NET.Tools.StreamExtensions.CopyStream(System.IO.Stream,System.IO.Stream,System.UInt32)">
+            <summary>
+            Copy from source stream to destination stream
+            </summary>
+            <param name="stream">Source stream</param>
+            <param name="dest">Destination stream</param>
+            <param name="bufferSize">Buffer size of one copy action</param>
+        </member>
+        <member name="M:NET.Tools.StreamExtensions.CopyStream(System.IO.Stream,System.IO.Stream,System.Action{System.Int64,System.Int64})">
+            <summary>
+            Copy from source stream to destination stream
+            </summary>
+            <param name="stream">Source stream</param>
+            <param name="dest">Destination stream</param>
+            <param name="progress">Action for the progress change (max, value)</param>
+        </member>
+        <member name="M:NET.Tools.StreamExtensions.CopyStream(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Copy from source stream to destination stream
+            </summary>
+            <param name="stream">Source stream</param>
+            <param name="dest">Destination stream</param>
+        </member>
+        <member name="T:NET.Tools.DirectoryInfoExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.PutInDirectoryEventArgs">
+            @}
+        </member>
+        <member name="T:NET.Tools.ByteArrayExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ResourceLanguageManager">
+            <summary>
+            Gets language strings from resources 
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ResourceLanguageManager.#ctor(System.Type)">
+            <summary>
+            Name is "Language"
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="T:NET.Tools.Repeaters">
+            <summary>
+            Repeater factory
+            </summary>
+        </member>
+        <member name="T:NET.Tools.IRepeatAppointment">
+            <summary>
+            For all repeatable appointments
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IRepeatAppointment.StartDate">
+            <summary>
+            Start of repeating
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IRepeatAppointment.EndDate">
+            <summary>
+            End of repeating
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IRepeatAppointment.Repeater">
+            <summary>
+            The repeater for the repeated appointment
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ITextArgument">
+            <summary>
+            Interface for all text arguments
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ITextArgument.RegularExpression">
+            <summary>
+            The regular expression for this text input
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ITextArgument.Name">
+            <summary>
+            Name of text parameter
+            </summary>
+        </member>
+        <member name="T:NET.Tools.StringExtensions">
+            <summary>
+            Extensions for Strings
+            </summary>
+        </member>
+        <member name="M:NET.Tools.StringExtensions.ParseCalculationString(System.String,System.Collections.Generic.Dictionary{System.String,System.Double},System.Int32)">
+            <summary>
+            Parse an as string given calculation
+            
+            It will use the static method from the StringCalculator.
+            </summary>
+            <param name="str"></param>
+            <param name="valueList">An optional list to replace characters with the given numbers</param>
+            <param name="decimals">Count of digits</param>
+            <returns>The calculation result</returns>
+            <example>
+            This example shows you to use this extension method:
+            <code>
+            String calc = "21*x/3";
+            double result = 0d;
+            
+            for(double i = -1.0d; i &lt;= 1.0d; i += 0.01d)
+            {
+                Dictionary{String, double} dic = new Dictionary{String, double}();
+                dic.Add("x", i);
+            
+                result += calc.ParseCalculationString(dic);
+            }
+            </code>
+            </example>
+            <exception cref="T:NET.Tools.ParserException">
+            Is thrown if the parser cannot parse the string
+            </exception>
+            <exception cref="T:NET.Tools.NumberParserException">
+            Is thrown if an number cannot be parsed
+            </exception>
+            <seealso cref="T:NET.Tools.StringCalculator"/>
+        </member>
+        <member name="M:NET.Tools.StringExtensions.Split(System.String,System.Int32[])">
+            <summary>
+            Split the string after the given lengths
+            </summary>
+            <param name="str"></param>
+            <param name="lengths">A length list as params list</param>
+            <returns></returns>
+        </member>
+        <member name="M:NET.Tools.StringExtensions.RemoveAllSpaces(System.String)">
+            <summary>
+            Removes all sapces (' '), tabs ('\\t') and wraps ('\\n', '\\r')
+            </summary>
+            <param name="str"></param>
+            <returns>A string without spaces, tabs and wraps</returns>
+        </member>
+        <member name="T:NET.Tools.SByteExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.DoubleExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.CharacterArrayExtensions">
+            <summary>
+            Extensions for character arrays
+            </summary>
+        </member>
+        <member name="T:NET.Tools.UndoRedoManager`1">
+            <summary>
+            Represent a manager for handling the undo-redo-system
+            </summary>
+            <typeparam name="T">Type of the controlled object</typeparam>
+            
+            <example>
+            This example show you to create an undo-redo-manager for an image:
+            <code>
+            UndoRedoManager{Image} manager = new UndoRedoManager{Image}();
+            ...
+            public void Init()
+            {
+                manager.UndoListChanged += (sender, e) => { btnUndo.Enabled = manager.CanUndo; };
+                manager.RedoListChanged += (sender, e) => { btnRedo.Enabled = manager.CanRedo; };
+            }
+            ...
+            public void DoAction()
+            {
+                manager.AddAction(currentImage);
+                ...
+            }
+            ...
+            public void Undo()
+            {
+                currentImage = manager.Undo(currentImage);
+            }
+            ...
+            public void Redo()
+            {
+                currentImage = manager.Redo(currentImage);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.#ctor(System.Int32)">
+            <summary>
+            Create the manager
+            </summary>
+            <param name="maxLength">Maximum length of undo and redo list or a value under 1 if the end is open</param>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.AddAction(System.String,`0)">
+            <summary>
+            Add a action that changed the old object value
+            </summary>
+            <param name="name">The name of the action that is use on this object now</param>
+            <param name="oldObj">The object before the action change it</param>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.AddAction(`0)">
+            <summary>
+            Add a action that changed the old object value
+            </summary>
+            <param name="oldObj">The object before the action change it</param>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.Undo(`0)">
+            <summary>
+            Make a change undo
+            </summary>
+            <param name="activeObj">The active object value (To add to the redo list)</param>
+            <returns>The object value before the active object value</returns>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.Redo(`0)">
+            <summary>
+            Make a change redo
+            </summary>
+            <param name="activeObj">The active object value (To add to the undo list)</param>
+            <returns>The object value after the active object value</returns>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.ClearUndoList">
+            <summary>
+            Clear the undo list
+            </summary>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.ClearRedoList">
+            <summary>
+            Clear the redo list
+            </summary>
+        </member>
+        <member name="M:NET.Tools.UndoRedoManager`1.ClearLists">
+            <summary>
+            Clear all lists
+            </summary>
+        </member>
+        <member name="E:NET.Tools.UndoRedoManager`1.UndoListChanged">
+            <summary>
+            Is called if the undo list is changed
+            </summary>
+        </member>
+        <member name="E:NET.Tools.UndoRedoManager`1.RedoListChanged">
+            <summary>
+            Is called if the redo list is changed
+            </summary>
+        </member>
+        <member name="P:NET.Tools.UndoRedoManager`1.LastUndoActionName">
+            <summary>
+            The last action name in undo list
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Is thrown if the undo list is empty
+            </exception>
+        </member>
+        <member name="P:NET.Tools.UndoRedoManager`1.LastRedoActionName">
+            <summary>
+            The last action name in redo list
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Is thrown if the redo list is empty
+            </exception>
+        </member>
+        <member name="P:NET.Tools.UndoRedoManager`1.CanUndo">
+            <summary>
+            Is an undo able?
+            </summary>
+        </member>
+        <member name="P:NET.Tools.UndoRedoManager`1.CanRedo">
+            <summary>
+            Is a redo able?
+            </summary>
+        </member>
+        <member name="P:NET.Tools.UndoRedoManager`1.MaxLength">
+            <summary>
+            The maximum length of undo and redo list. If the end is open then use all values under 1
+            </summary>
+        </member>
+        <member name="P:NET.Tools.UndoRedoManager`1.RedoActionNameList">
+            <summary>
+            Gets an array of strings with all redo action names
+            </summary>
+        </member>
+        <member name="P:NET.Tools.UndoRedoManager`1.UndoActionNameList">
+            <summary>
+            Gets an array of strings with all undo action names
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ArgumentBaseType">
+            <summary>
+            Represent the argument base type
+            </summary>
+        </member>
+        <member name="F:NET.Tools.ArgumentBaseType.String">
+            <summary>
+            Argument as String or a character
+            </summary>
+        </member>
+        <member name="F:NET.Tools.ArgumentBaseType.Integer">
+            <summary>
+            Argument as Byte, Int16, Int32, Int64 or unsigned versions
+            </summary>
+        </member>
+        <member name="F:NET.Tools.ArgumentBaseType.Decimal">
+            <summary>
+            Argument as Decimal, Double, Float (Single)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.CheckResult">
+            <summary>
+            Result type for the argument check method
+            </summary>
+        </member>
+        <member name="F:NET.Tools.CheckResult.OK">
+            <summary>
+            Argument is ok (was accept)
+            </summary>
+        </member>
+        <member name="F:NET.Tools.CheckResult.IsAlreadySet">
+            <summary>
+            Argument was already set in the past
+            </summary>
+        </member>
+        <member name="F:NET.Tools.CheckResult.Wrong">
+            <summary>
+            Argument is wrong
+            </summary>
+        </member>
+        <member name="F:NET.Tools.CheckResult.Fatal">
+            <summary>
+            Fatal error
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SwitchCharacter">
+            <summary>
+            Represent a switch character
+            </summary>
+            <see cref="T:NET.Tools.SwitchArgument"/>
+            <see cref="T:NET.Tools.SwitchedContentArgument`1"/>
+        </member>
+        <member name="F:NET.Tools.SwitchCharacter.Minus">
+            <summary>
+            Minus (-xxx)
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SwitchCharacter.Plus">
+            <summary>
+            Plud (+xxx)
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SwitchCharacter.Slash">
+            <summary>
+            Slash (/xxx)
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SwitchCharacter.DoubleMinus">
+            <summary>
+            Double minus (--xxx)
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SeparatorCharacter">
+            <summary>
+            Represent a separator character
+            </summary>
+            <see cref="T:NET.Tools.SwitchedContentArgument`1"/>
+        </member>
+        <member name="F:NET.Tools.SeparatorCharacter.Colon">
+            <summary>
+            Colon (:)
+            <example>
+            program.exe -x:NO
+            </example>
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SeparatorCharacter.Equal">
+            <summary>
+            Equal (=)
+            <example>
+            program.exe -x=NO
+            </example>
+            </summary>
+        </member>
+        <member name="T:NET.Tools.Algorithm">
+            <summary>
+            Contains internal algorithms
+            </summary>
+        </member>
+        <member name="T:NET.Tools.Algorithm.Math">
+            <summary>
+            Mathematical algorithms
+            </summary>
+        </member>
+        <member name="T:NET.Tools.Algorithm.Math.Color">
+            <summary>
+            Color algorithms
+            </summary>
+        </member>
+        <member name="T:NET.Tools.StringCalculator">
+            <summary>
+            Compute string calculations
+            
+            <example>
+            This example shows you to use this tools class:
+            <code>
+            String calc = "21*x/3";
+            double result = 0d;
+            
+            for(double i = -1.0d; i &lt;= 1.0d; i += 0.01d)
+            {
+                Dictionary{String, double} dic = new Dictionary{String, double}();
+                dic.Add("x", i);
+            
+                result += StringCalculator.ParseCalculationString(calc, dic);
+            }
+            </code>
+            This example shows you a complex operation:
+            <code>
+            String calc = "-(4 * 5.23) * sin(cos(-3.45)/1.2) + 0.567";
+            double value = StringCalculator.ParseCalculationString(calc);
+            </code>
+            </example>
+            
+            <remarks>
+            Supported:
+            - Number format:
+                - Negative numbers
+                - Decimal numbers with [.] and [,]
+                - Variable number of digits (default 6)
+            - Operations (Pow first, Point second, Line third):
+                - Add +
+                - Sub -
+                - Div /
+                - Mul *
+                - Mod %
+                - Pow ^
+            - Breaks
+            - Functions:
+                - Sin
+                - Cos
+                - Tan
+                - SinA
+                - CosA
+                - TanA
+                - Sinh
+                - Cosh
+                - Tanh
+                - Abs
+                - Round
+                - Trunc
+                - Sqrt
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:NET.Tools.StringCalculator.ParseCalculationString(System.String,System.Collections.Generic.Dictionary{System.String,System.Double},System.Int32)">
+            <summary>
+            Parse an as string given calculation
+            </summary>
+            <param name="str"></param>
+            <param name="valueList">An optional list to replace characters with the given numbers</param>
+            <param name="decimals">Count of digits</param>
+            <returns>The calculation result</returns>
+            <exception cref="T:NET.Tools.ParserException">
+            Is thrown if the parser cannot parse the string
+            </exception>
+            <exception cref="T:NET.Tools.NumberParserException">
+            Is thrown if an number cannot be parsed
+            </exception>
+        </member>
+        <member name="T:NET.Tools.MultiPluginManager">
+            <summary>
+            A manager for plugin systems
+            </summary>
+        </member>
+        <member name="T:NET.Tools.PluginManager">
+            <summary>
+            Represent an abstract class for all plugin manager
+            </summary>
+        </member>
+        <member name="T:NET.Tools.RepeatConditionAppointment">
+            <summary>
+            A repeat appointment object for a condition
+            </summary>
+        </member>
+        <member name="T:NET.Tools.IConditionAppointment">
+            <summary>
+            Represent an interface for all condition appointments
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IConditionAppointment.Condition">
+            <summary>
+            The condition of this appointment
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IConditionAppointment.Time">
+            <summary>
+            Only the time of the appointment
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SwitchedContentArgument`1">
+            <summary>
+            Represent a switched content argument
+            <example>
+            An example for a switched content argument is:
+            - program.exe -path=C:\
+            - program.exe -detect:ON
+            </example>
+            </summary>
+        </member>
+        <member name="T:NET.Tools.IMultiArgument`1">
+            <summary>
+            Interface for all arguments they can be more than one times 
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IMultiArgument`1.ValueList">
+            <summary>
+            List of values (or only one item if IsSeveralTimes is false)
+            <remarks>
+            Object can be only:
+            - String
+            - Int32
+            - Double
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:NET.Tools.IMultiArgument`1.Value">
+            <summary>
+            Gets the first value of the value list
+            </summary>
+        </member>
+        <member name="P:NET.Tools.SwitchedContentArgument`1.SeparatorCharacter">
+            <summary>
+            Represent the seperator between the switch and the argument text
+            </summary>
+        </member>
+        <member name="T:NET.Tools.Conditions">
+            <summary>
+            Conditions factory
+            </summary>
+        </member>
+        <member name="T:NET.Tools.AppointmentEntity">
+            <summary>
+            Represent a indivudual appointment independency of this parent object
+            </summary>
+        </member>
+        <member name="T:NET.Tools.DateAppointment">
+            <summary>
+            A default appointment object
+            </summary>
+        </member>
+        <member name="P:NET.Tools.AppointmentEntity.Repeating">
+            <summary>
+            The repeating number of this appointment
+            </summary>
+        </member>
+        <member name="P:NET.Tools.AppointmentEntity.IsRepeated">
+            <summary>
+            Information about the repeat state
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ComputeTools">
+            <summary>
+            Tools for computing
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ComputeTools.ComputeTimeToEnd(System.Double,System.Double,System.Int64,System.Int64)">
+            <summary>
+            Compute the time until the end of process
+            </summary>
+            <param name="max">Maximum value</param>
+            <param name="val">Value now</param>
+            <param name="tickFirst">First tick value</param>
+            <param name="tickNow">Tick value now</param>
+            <returns>Time until end</returns>
+        </member>
+        <member name="M:NET.Tools.ComputeTools.ComputeKBytesPerSecond(System.Double,System.Int64,System.Int64)">
+            <summary>
+            Compute the KBytes per Second rate
+            </summary>
+            <param name="val">Value of bytes now</param>
+            <param name="tickFirst">First tick</param>
+            <param name="tickNow">Tick now</param>
+            <returns>KB/s</returns>
+        </member>
+        <member name="T:NET.Tools.EHCBuilder">
+            <summary>
+            Create a equals and hashcode for an object
+            </summary>
+        </member>
+        <member name="M:NET.Tools.EHCBuilder.Equals(System.Object,System.Object)">
+            <summary>
+            Create an equals for the two objects
+            </summary>
+            <param name="baseObj">Base object</param>
+            <param name="obj">Other object</param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.TextReaderExtensions">
+            <summary>
+            Extensions for System.IO.TextReader
+            </summary>
+        </member>
+        <member name="T:NET.Tools.LongExtensions">
+            <summary>
+            Extensions for long
+            </summary>
+        </member>
+        <member name="T:NET.Tools.BooleanExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.BooleanExtensions.ToPointer(System.Boolean)">
+            <summary>
+            Gets the Pointer to the boolean
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NET.Tools.ArgumentReader">
+            <summary>
+            Represent a class to read arguments for the program
+            
+            <example>
+            This example shows you to read the arguments 'filename', '/D' and '/F=Number' from the command line. 
+            The parameter '/D' must be optional, 'filename' is not optional and '/F=Number' is optional too and must be an Int32:
+            <code>
+             argReader = new ArgumentReader(false, SwitchArgument.CreateHelpArgument(SwitchCharacter.Slash), "My Error Text", 
+                       "Using: program.exe {filename} [/D] [/F=3]", "Example", "BlaBla", 
+                       new PureArgument{String}("MyPureArgument", false, false, "Filename", "Pure Argument: %message%"), 
+                       new SwitchArgument(SwitchCharacter.Slash, "D", "Switch D", "Switch D: %message%"),
+                       new SwitchedContentArgument{Int32}("SwitchedArgument", SwitchCharacter.Slash, "F", SeparatorCharacter.Equal, true, true, "Switched Content F", "Switched Content F: %message%"));
+             if (!argReader.EvaluateArguments(args))
+                throw new Exception("Failed to read arguments!");
+            </code>
+            </example>
+            </summary>
+            <seealso cref="T:NET.Tools.IArgument"/>
+            <seealso cref="T:NET.Tools.ISwitchArgument"/>
+            <seealso cref="T:NET.Tools.ITextArgument"/>
+            <seealso cref="T:NET.Tools.PureArgument`1"/>
+            <seealso cref="T:NET.Tools.SwitchArgument"/>
+            <seealso cref="T:NET.Tools.SwitchedContentArgument`1"/>
+        </member>
+        <member name="M:NET.Tools.ArgumentReader.EvaluateArguments(System.String[])">
+            <summary>
+            Evaluate all arguments
+            </summary>
+            <param name="args">The argument list</param>
+            <returns>TRUE, if all is ok</returns>
+        </member>
+        <member name="M:NET.Tools.ArgumentReader.EvaluateArguments(System.Boolean,System.String[])">
+            <summary>
+            Evaluate all arguments
+            </summary>
+            <param name="autoPrint">TRUE if the method print text to console automaticly</param>
+            <param name="args">The argument list</param>
+            <returns>TRUE, if all is ok</returns>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.ArgumentList">
+            <summary>
+            List of arguments to read
+            </summary>
+            <see cref="T:NET.Tools.PureArgument`1"/>
+            <see cref="T:NET.Tools.SwitchArgument"/>
+            <see cref="T:NET.Tools.SwitchedContentArgument`1"/>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.ShowHelp">
+            <summary>
+            TRUE, if the help page is shown if the argument list is wrong
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.SyntaxUsing">
+            <summary>
+            A string to descripe the syntax using for the arguments
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.ExampleUsing">
+            <summary>
+            A string to descripe the syntax using with (an) example(s)
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.Hints">
+            <summary>
+            A string to show hints for syntax using
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.ErrorUsing">
+            <summary>
+            A string to show an error text if the argument list is wrong
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.AllowUnknownArgs">
+            <summary>
+            FALSE, if an error must thrown if the argument is unknown, otherwise it will be ignored
+            </summary>
+        </member>
+        <member name="P:NET.Tools.ArgumentReader.HelpArgument">
+            <summary>
+            Represent the argument that shows the help page only. For example '/?'
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ShortExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.FloatExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="P:NET.Tools.Properties.Resources.log">
+             <summary>
+               Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;log4net&gt;
+            
+              &lt;appender name=&quot;FileLogger&quot; type=&quot;log4net.Appender.RollingFileAppender&quot;&gt;
+                &lt;file value=&quot;multiimage.log&quot;/&gt;
+                &lt;appendToFile value=&quot;false&quot;/&gt;
+                &lt;maximumFileSize value=&quot;1000KB&quot;/&gt;
+                &lt;maxSizeRollBackups value=&quot;2&quot;/&gt;
+                &lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;
+                  &lt;conversionPattern value=&quot;%date %level %thread %logger - %message%newline&quot;/&gt;
+                &lt;/layout&gt;
+              &lt;/appender&gt;
+            
+            	&lt;appender name=&quot;ConsoleLogger&quot; type=&quot;log4net.Appender.ConsoleAppende [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+             </summary>
+        </member>
+        <member name="T:NET.Tools.UnsignedShortExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.AssemblyExtensions">
+            <summary>
+            Extensions for Assembly
+            </summary>
+        </member>
+        <member name="M:NET.Tools.AssemblyExtensions.GetTypes(System.Reflection.Assembly,NET.Tools.AssemblyType,NET.Tools.AssemblyLink)">
+            <summary>
+            Gets all types in assembly
+            </summary>
+            <param name="asm"></param>
+            <param name="type">Type description</param>
+            <param name="link">Link for type description parameter (OR / AND)</param>
+            <returns>Array of found types</returns>
+        </member>
+        <member name="M:NET.Tools.AssemblyExtensions.GetTypes(System.Reflection.Assembly,NET.Tools.AssemblyType)">
+            <summary>
+            Gets all types in assembly with OR link
+            </summary>
+            <param name="asm"></param>
+            <param name="type">Type description</param>
+            <returns>Array of found types</returns>
+        </member>
+        <member name="T:NET.Tools.AssemblyType">
+            <summary>
+            \addtogroup enums
+            @{
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Enumeration">
+            <summary>
+            Search enumerations
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Class">
+            <summary>
+            Search classes
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Interface">
+            <summary>
+            Search interfaces
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Abstract">
+            <summary>
+            Search abstract classes
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Public">
+            <summary>
+            Search public classes / interfaces / structs
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.NotPublic">
+            <summary>
+            Search not public classes / interfaces / structs
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Nested">
+            <summary>
+            Search nested classes / interfaces / structs
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Sealed">
+            <summary>
+            Search sealed classes / structs
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Pointer">
+            <summary>
+            Search pointer
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Primitive">
+            <summary>
+            Search primitives
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Serializable">
+            <summary>
+            Search serializable classes / structs
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.ValueType">
+            <summary>
+            Search value types
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Visible">
+            <summary>
+            Search visible classes / interfaces / structs
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.MarshalByRef">
+            <summary>
+            Search classes / structs that inherited from MarshalByRef class
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.GenericType">
+            <summary>
+            Search generic types
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Imported">
+            <summary>
+            Search imported
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.COMObject">
+            <summary>
+            Search com objects
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.ByRef">
+            <summary>
+            Search ref by
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.AutoClass">
+            <summary>
+            Search auto classes
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.AutoLayout">
+            <summary>
+            Search auto layout
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.AnsiClass">
+            <summary>
+            Search ansi classes
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyType.Array">
+            <summary>
+            Search arrays
+            </summary>
+        </member>
+        <member name="T:NET.Tools.AssemblyLink">
+            <summary>
+            The link of assembly type informations
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyLink.OR">
+            <summary>
+            OR-Link
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyLink.AND">
+            <summary>
+            AND-Link
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ArrayExtensions">
+            <summary>
+            Extensions for arrays
+            </summary>
+        </member>
+        <member name="T:NET.Tools.UnsignedLongExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SinglePluginManager`1">
+            <summary>
+            Represent a plugin manager for single types
+            </summary>
+            <typeparam name="T">The plugin type to search in external DLLs</typeparam>
+            
+            <example>
+            This example shows you to get a plugin from dll:
+            <code>
+            SinglePluginManager&lt;IMyType&gt; manager = new SinglePluginManager&lt;IMyType&gt;();
+            manager.AssemblyList.Add(Assembly.LoadFrom("MyPlugins.dll"));
+            IMyType[] instances = manager.GetInstances();
+            </code>
+            Here you can see that the type IMyType will be searched in all assemblies (here in MyPlugins.dll) and
+            it will be create for each found type a instance.
+            </example>
+        </member>
+        <member name="T:NET.Tools.BytesTool">
+            <summary>
+            Tool for building the types from byte array
+            </summary>
+        </member>
+        <member name="T:NET.Tools.FileInfoExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.YearCondition">
+            <summary>
+            Condition for a year point in days
+            </summary>
+            <example>
+            The 55th day in the year 2005
+            <code>
+            ICondition con = new YearDayCondition(55, CounterType.Front, 2005);
+            </code>
+            </example>
+        </member>
+        <member name="T:NET.Tools.ICondition">
+            <summary>
+            Represent an interface for all condition objects
+            </summary>
+        </member>
+        <member name="M:NET.Tools.ICondition.GetDates(System.DateTime,System.DateTime)">
+            <summary>
+            Compute all dates for this condition
+            </summary>
+            <param name="start">Start date of searching</param>
+            <param name="end">End date of searching</param>
+        </member>
+        <member name="P:NET.Tools.ICondition.CounterType">
+            <summary>
+            Type of counter
+            </summary>
+        </member>
+        <member name="T:NET.Tools.Repeater">
+            <summary>
+            Represent the repeater
+            </summary>
+        </member>
+        <member name="P:NET.Tools.Repeater.Type">
+            <summary>
+            Type of repeating
+            </summary>
+        </member>
+        <member name="T:NET.Tools.RepeatType">
+            \addtogroup enums
+            @{
+        </member>
+        <member name="T:NET.Tools.DecimalExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="T:NET.Tools.MonthCondition">
+            <summary>
+            Condition for a month point in days
+            </summary>
+            <example>
+            The 5th last day in month March
+            <code>
+            ICondition con = new MonthDayCondition(5, CounterType.Back, MonthOfYear.March);
+            </code>
+            </example>
+        </member>
+        <member name="T:NET.Tools.MonthOfYear">
+            <summary>
+            The months of the year
+            </summary>
+        </member>
+        <member name="T:NET.Tools.CounterType">
+            \addtogroup enums
+            @{
+        </member>
+        <member name="F:NET.Tools.CounterType.Front">
+            <summary>
+            Count from front
+            </summary>
+        </member>
+        <member name="F:NET.Tools.CounterType.Back">
+            <summary>
+            Count from back
+            </summary>
+        </member>
+        <member name="T:NET.Tools.Organizer">
+            <summary>
+            Represent an orenizer tool object
+            </summary>
+        </member>
+        <member name="M:NET.Tools.Organizer.#ctor">
+            <summary>
+            Creates the oranizer with the active date
+            </summary>
+        </member>
+        <member name="P:NET.Tools.Organizer.Date">
+            <summary>
+            Active date of orenizer
+            </summary>
+        </member>
+        <member name="P:NET.Tools.Organizer.AppointmentList">
+            <summary>
+            List of all appointments
+            </summary>
+        </member>
+        <member name="T:NET.Tools.SearchType">
+            <summary>
+            Enumeration for all search types for the plugin manager
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SearchType.Direct">
+            <summary>
+            Search given type direct
+            <example>
+            If you set type to Stream, it search type Stream
+            </example>
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SearchType.DirectBase">
+            <summary>
+            Search given type as direct base of any type
+            <example>
+            If you set type to Stream, it search for example MemoryStream, FileStream, ect.
+            </example>
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SearchType.AnyBase">
+            <summary>
+            Search given type as any base of any type
+            <example>
+            If you set UIElement, it search for example Button, Window, Panel etc.
+            </example>
+            </summary>
+        </member>
+        <member name="F:NET.Tools.SearchType.AnyInterface">
+            <summary>
+            Search given type as any interface of any type
+            <example>
+            If you set IDispose, it search for example Stream, Frame, Window ect.
+            </example>
+            </summary>
+        </member>
+        <member name="T:NET.Tools.AssemblyInfo">
+            <summary>
+            Represent a class to read the assembly informations about a dll or exe
+            </summary>
+        </member>
+        <member name="M:NET.Tools.AssemblyInfo.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Create a object instance
+            </summary>
+            <param name="asm">The assembly to read</param>
+        </member>
+        <member name="P:NET.Tools.AssemblyInfo.AssemblyTitle">
+            <summary>
+            Title of assembly
+            </summary>
+        </member>
+        <member name="P:NET.Tools.AssemblyInfo.AssemblyVersion">
+            <summary>
+            Version of Assembly
+            </summary>
+        </member>
+        <member name="P:NET.Tools.AssemblyInfo.AssemblyDescription">
+            <summary>
+            Description of assembly
+            </summary>
+        </member>
+        <member name="P:NET.Tools.AssemblyInfo.AssemblyProduct">
+            <summary>
+            Product-Name of assemby
+            </summary>
+        </member>
+        <member name="P:NET.Tools.AssemblyInfo.AssemblyCopyright">
+            <summary>
+            Copyright of assembly
+            </summary>
+        </member>
+        <member name="P:NET.Tools.AssemblyInfo.AssemblyCompany">
+            <summary>
+            Company of assembly
+            </summary>
+        </member>
+        <member name="T:NET.Tools.AssemblyInfoString">
+            \addtogroup enums
+            @{
+        </member>
+        <member name="F:NET.Tools.AssemblyInfoString.Full">
+            <summary>
+            All informations in a list
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyInfoString.Normal">
+            <summary>
+            Important informations in a list
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyInfoString.Easy">
+            <summary>
+            Only title in list
+            </summary>
+        </member>
+        <member name="F:NET.Tools.AssemblyInfoString.CommandLineStyle">
+            <summary>
+            Style for command line:
+            Title Copyright (Version)
+            Description
+            </summary>
+        </member>
+        <member name="T:NET.Tools.TimeSpanExtensions">
+            <summary>
+            TimeSpan extensions
+            </summary>
+        </member>
+        <member name="T:NET.Tools.TimeSpanStringType">
+            <summary>
+            All types for the to string extension method for time span
+            </summary>
+        </member>
+        <member name="F:NET.Tools.TimeSpanStringType.Full">
+            <summary>
+            Full time span: Days, Hours:Minutes:Seconds:Milliseconds
+            </summary>
+        </member>
+        <member name="F:NET.Tools.TimeSpanStringType.Normal">
+            <summary>
+            Normal time span: Hours:Minutes:Seconds
+            </summary>
+        </member>
+        <member name="F:NET.Tools.TimeSpanStringType.Minimal">
+            <summary>
+            Minimal time span: Minutes:Seconds
+            </summary>
+        </member>
+        <member name="F:NET.Tools.TimeSpanStringType.OnlyLast">
+            <summary>
+            Only the last object is shown: E. g. 3 Days, 5 Min, 10 Seconds, ect.
+            </summary>
+        </member>
+        <member name="F:NET.Tools.TimeSpanStringType.Default">
+            <summary>
+            The default toString method is used
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ICollectionExtensions">
+            <summary>
+            Extensions for ICollection
+            </summary>
+        </member>
+        <member name="T:NET.Tools.DateTimeExtensions">
+            <summary>
+            \addtogroup extensions
+            @{
+            </summary>
+        </member>
+        <member name="M:NET.Tools.DateTimeExtensions.AddDaysUntilNextDayOfWeek(System.DateTime,System.DayOfWeek,System.Boolean)">
+            <summary>
+            Add all days between the datetime day of week and the next day of week.
+            </summary>
+            <example>
+            For example: It is 2010-12-02 (Thursday), value is Sunday, it will be add 3 days:
+            <code>
+            DateTime date = new DateTime(2010, 12, 2);
+            date = date.AddDaysUntilNextDayOfWeek(DayOfWeek.Sunday);
+            Console.WriteLine(date.ToShortDateString());
+            </code>
+            It will be print out "2010-12-05"
+            </example>
+            <param name="dateTime"></param>
+            <param name="value">The next day of week to compute the days</param>
+            <param name="gotoNextIfEquals">If the day of week is equals and this parameter 
+            is true it will be add 7 days, otherwise 0 days</param>
+            <returns>New DateTime object</returns>
+        </member>
+        <member name="M:NET.Tools.DateTimeExtensions.AddDaysUntilNextDayOfWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Add all days between the datetime day of week and the next day of week. 
+            If the day of week is equals the computed days are 0
+            </summary>
+            <param name="dateTime"></param>
+            <param name="value">The next day of week to compute the days</param>
+            <returns>New DateTime object</returns>
+        </member>
+        <member name="M:NET.Tools.DateTimeExtensions.AddDaysUntilPrevDayOfWeek(System.DateTime,System.DayOfWeek,System.Boolean)">
+            <summary>
+            Remove all days between the datetime day of week and the last day of week.
+            </summary>
+            <example>
+            For example: It is 2010-12-02 (Thursday), value is Sunday, it will be removed 4 days:
+            <code>
+            DateTime date = new DateTime(2010, 12, 2);
+            date = date.AddDaysUntilPrevDayOfWeek(DayOfWeek.Sunday);
+            Console.WriteLine(date.ToShortDateString());
+            </code>
+            It will be print out "2010-11-28"
+            </example>
+            <param name="dateTime"></param>
+            <param name="value">The last day of week to compute the days</param>
+            <param name="gotoNextIfEquals">If the day of week is equals and this parameter 
+            is true it will be removed 7 days, otherwise 0 days</param>
+            <returns>New DateTime object</returns>
+        </member>
+        <member name="M:NET.Tools.DateTimeExtensions.AddDaysUntilPrevDayOfWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Remove all days between the datetime day of week and the last day of week. 
+            If the day of week is equals the computed days are 0
+            </summary>
+            <param name="dateTime"></param>
+            <param name="value">The last day of week to compute the days</param>
+            <returns>New DateTime object</returns>
+        </member>
+        <member name="T:NET.Tools.UpdateClient`1">
+            <summary>
+            Represent a class for a client for updating processes via internet
+            
+            <example>
+            This code shows you to create an update client:
+            <code>
+            using (UpdateClient{IUpdateServer} client =
+                           new UpdateClient{IUpdateServer}(new IPAddress(new byte[] { 127, 0, 0, 1 }), 50315, "Updater"))
+                       {
+                           client.Connect();                
+                           if (client.ServiceObject.CheckForUpdate(CurrentVersion))
+                           {
+                                using(IFileLoader fileLoader = new StreamFileLoader("C:\Temp\Seup.exe"))
+                                {
+                                    client.ServiceObject.DownloadUpdate(fileLoader);
+                                }
+                           }                
+                           client.Disconnect();
+                       }
+            </code>
+            </example>
+            </summary>
+            <seealso cref="T:NET.Tools.UpdateServer"/>
+            <seealso cref="T:NET.Tools.DefaultUpdateServer"/>
+            <seealso cref="T:NET.Tools.IFileLoader"/>
+            <seealso cref="T:NET.Tools.StreamFileLoader"/>
+            <typeparam name="T">Type of the service object. Must be a class from the interface IUpdateServer</typeparam>
+        </member>
+        <member name="P:NET.Tools.UpdateClient`1.ServiceObject">
+            <summary>
+            The updater service object
+            </summary>
+        </member>
+        <member name="T:NET.Tools.RemoteTCPClient`1">
+             <summary>
+             Represent a class to create a tcp/ip remote client
+             </summary>
+             <typeparam name="T">The service type</typeparam>
+             <example>
+             This example shows you to create a tcp/ip remote client:
+             <code>
+             using (RemoteTCPClient{IRemoteService} client =
+                            new RemoteTCPClient{IRemoteService}(new IPAddress(new byte[] { 127, 0, 0, 1 }), 50315, "TestRemoting"))
+                        {
+                            client.Connect();
+            
+                            Assert.IsTrue(client.ServiceObject.Add(1.2d, 3.5d) == (1.2d + 3.5d), "Wrong add!");
+                            Assert.IsTrue(client.ServiceObject.Sub(1.2d, 3.5d) == (1.2d - 3.5d), "Wrong add!");
+                            Assert.IsTrue(client.ServiceObject.Div(1.2d, 3.5d) == (1.2d / 3.5d), "Wrong add!");
+                            Assert.IsTrue(client.ServiceObject.Mul(1.2d, 3.5d) == (1.2d * 3.5d), "Wrong add!");
+            
+                            client.Disconnect();
+                        }
+             </code>
+             IRemoteService:
+             <code>
+             public interface IRemoteService
+             {
+                double Add(double a, double b);
+                double Mul(double a, double b);
+                double Div(double a, double b);
+                double Sub(double a, double b);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="T:NET.Tools.RepeatDateAppointment">
+            <summary>
+            A repeat appointment object for a fixed date
+            </summary>
+        </member>
+        <member name="T:NET.Tools.PureArgument`1">
+            <summary>
+            Represent a pure argument
+            <example>
+            An example for a pure argument is:
+            - program.exe C:\test.txt
+            - program.exe 1234
+            </example>
+            </summary>
+        </member>
+        <member name="T:NET.Tools.ByteExtensions">
+            <summary>
+            Extensions for bytes
+            </summary>
+        </member>
+        <member name="T:NET.Tools.AppDomainExtensions">
+            <summary>
+            Extensions for AppDomain
+            </summary>
+        </member>
+        <member name="M:NET.Tools.AppDomainExtensions.GetApplicationFilename(System.AppDomain)">
+            <summary>
+            Gets the current filename of the application
+            </summary>
+            <param name="dom"></param>
+            <returns>Filename of application as FileInfo</returns>
+        </member>
+        <member name="M:NET.Tools.AppDomainExtensions.ListApplicationInformnation(System.AppDomain)">
+            <summary>
+            List important information of application domain for logging
+            </summary>
+            <param name="dom"></param>
+            <returns>The string with the AppDomain-Informations</returns>
+        </member>
+    </members>
+</doc>
